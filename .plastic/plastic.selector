@@ -1,0 +1,4 @@
+repository "granja_juego@Parcela9@cloud"
+  path "/"
+    br "/main"
+    co "/main"
