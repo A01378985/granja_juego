@@ -1,19 +1,30 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ObjetoAnimado : MonoBehaviour
 {
-    // Start is called before the first frame update
-    private Animator anim;
+    private List<Animator> animadores = new List<Animator>();
 
     void Start()
     {
-        anim = GetComponent<Animator>();
+        RecopilarAnimadores(gameObject);
+    }
+
+    private void RecopilarAnimadores(GameObject objetoPadre)
+    {
+        // Recopila los animadores de todos los hijos recursivamente
+        Animator[] hijosAnimadores = objetoPadre.GetComponentsInChildren<Animator>();
+        foreach (Animator animador in hijosAnimadores)
+        {
+            animadores.Add(animador);
+        }
     }
 
     public void ActivarAnimacion(bool activar)
     {
-        anim.SetBool("aproximacion", activar);
+        foreach (Animator animador in animadores)
+        {
+            animador.SetBool("aproximacion", activar);
+        }
     }
 }

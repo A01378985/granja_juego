@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Tilemaps;
 
 public class PlayerController : MonoBehaviour
 {
@@ -9,7 +8,6 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D _rigidbody;
     private Animator _animator;
-    private TilemapRenderer highlightedTilemapRenderer; // TilemapRenderer del tile resaltado
 
     private const string AXIS_H = "Horizontal";
     private const string AXIS_V = "Vertical";
@@ -71,54 +69,5 @@ public class PlayerController : MonoBehaviour
         _animator.SetBool(WALK, walking);
         _animator.SetFloat(LAST_H, lastMovement.x);
         _animator.SetFloat(LAST_V, lastMovement.y);
-
-        // Detectar el tilemap del cultivo que el jugador está mirando
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, lastMovement, detectionRadius, LayerMask.GetMask("Default"));
-        if (hit.collider != null)
-        {
-            TilemapRenderer hitTilemapRenderer = hit.collider.GetComponent<TilemapRenderer>();
-            if (hitTilemapRenderer != null && hit.collider.CompareTag("Tile"))
-            {
-                print("Detectado");
-                // Resaltar el tilemap detectado
-                HighlightTilemap(hitTilemapRenderer);
-            }
-        }
-        else
-        {
-            print("no Detectado");
-            // Si no hay ningún tilemap en la dirección del jugador, eliminar cualquier resaltado existente
-            ClearHighlightedTilemap();
-        }
-    }
-
-    void HighlightTilemap(TilemapRenderer tilemapRenderer)
-    {
-        // Eliminar el resaltado del tilemap previamente resaltado (si hay alguno)
-        ClearHighlightedTilemap();
-
-        // Resaltar el nuevo tilemap
-        highlightedTilemapRenderer = tilemapRenderer;
-        Material[] materials = highlightedTilemapRenderer.materials;
-        for (int i = 0; i < materials.Length; i++)
-        {
-            materials[i].color = highlightColor;
-        }
-        highlightedTilemapRenderer.materials = materials;
-    }
-
-    void ClearHighlightedTilemap()
-    {
-        // Si hay un tilemap resaltado, eliminar su resaltado
-        if (highlightedTilemapRenderer != null)
-        {
-            Material[] materials = highlightedTilemapRenderer.materials;
-            for (int i = 0; i < materials.Length; i++)
-            {
-                materials[i].color = Color.white; // Restaurar el color original del material
-            }
-            highlightedTilemapRenderer.materials = materials;
-            highlightedTilemapRenderer = null;
-        }
     }
 }
