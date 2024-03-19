@@ -18,3 +18,4 @@ public class PausaManager : MonoBehaviour
         pruebaPausa.SetActive(false);
     }
 }
+
