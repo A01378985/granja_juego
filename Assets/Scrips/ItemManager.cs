@@ -47,11 +47,12 @@ public class ItemManager : MonoBehaviour
     public void UseFertilizer()
     {
         Parcela activeParcel = FindActiveParcel();
-        if (fertilizer > 0 && activeParcel != null)
+        if (fertilizer > 0 && activeParcel != null && activeParcel.fertilizer < 2)
         {
             fertilizer--;
             fertilizerText.text = fertilizer.ToString();
             activeParcel.fertilizer++;
+            activeParcel.productivity += 10;
         }
     }
     // Método para restar un item de riego y actualizar el texto
@@ -69,11 +70,12 @@ public class ItemManager : MonoBehaviour
     public void UseTool()
     {
         Parcela activeParcel = FindActiveParcel();
-        if (tool > 0 && activeParcel != null)
+        if (tool > 0 && activeParcel != null && activeParcel.tool < 1)
         {
             tool--;
             toolText.text = tool.ToString();
             activeParcel.tool++;
+            activeParcel.productivity += 10;
         }
     }
     // Método para restar un item de semilla y actualizar el texto
@@ -89,11 +91,12 @@ public class ItemManager : MonoBehaviour
     public void UseWorker()
     {
         Parcela activeParcel = FindActiveParcel();
-        if (worker > 0 && activeParcel != null)
+        if (worker > 0 && activeParcel != null && activeParcel.worker < 2)
         {
             worker--;
             workerText.text = worker.ToString();
             activeParcel.worker++;
+            activeParcel.productivity += 10;
         }
     }
     // Método para actualizar los textos de la interfaz para todos los items
