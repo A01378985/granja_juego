@@ -53,6 +53,7 @@ public class ItemManager : MonoBehaviour
             fertilizerText.text = fertilizer.ToString();
             activeParcel.fertilizer++;
             activeParcel.productivity += 10;
+            activeParcel.EnablePlants();
         }
     }
     // Método para restar un item de riego y actualizar el texto
@@ -76,6 +77,7 @@ public class ItemManager : MonoBehaviour
             toolText.text = tool.ToString();
             activeParcel.tool++;
             activeParcel.productivity += 10;
+            activeParcel.EnablePlants();
         }
     }
     // Método para restar un item de semilla y actualizar el texto
@@ -97,6 +99,7 @@ public class ItemManager : MonoBehaviour
             workerText.text = worker.ToString();
             activeParcel.worker++;
             activeParcel.productivity += 10;
+            activeParcel.EnablePlants();
         }
     }
     // Método para actualizar los textos de la interfaz para todos los items

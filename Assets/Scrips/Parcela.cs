@@ -20,6 +20,10 @@ public class Parcela : MonoBehaviour
     public int worker;
     public SpriteRenderer spriteRendererNormal;
     public SpriteRenderer spriteRendererActive;
+    public GameObject plantas_1;
+    public GameObject plantas_2;
+    public GameObject plantas_3;
+    public GameObject plantas_4;
     // Detectar la colisión con el jugador
     private void Start()
     {
@@ -31,6 +35,10 @@ public class Parcela : MonoBehaviour
         worker = 0;
         spriteRendererNormal.enabled = true;
         spriteRendererActive.enabled = false;
+        plantas_1.SetActive(false);
+        plantas_2.SetActive(false);
+        plantas_3.SetActive(false);
+        plantas_4.SetActive(false);
     }
     // Detectar la colisión con el jugador
     private void OnTriggerEnter2D(Collider2D collision) {
@@ -46,6 +54,35 @@ public class Parcela : MonoBehaviour
             activeParcel = false;
             spriteRendererNormal.enabled = true;
             spriteRendererActive.enabled = false;
+        }
+    }
+    // Habilitar GameObjects de acuerdo con la productividad de la parcela
+    public void EnablePlants() {
+        if (productivity < 20) {
+            plantas_1.SetActive(false);
+            plantas_2.SetActive(false);
+            plantas_3.SetActive(false);
+            plantas_4.SetActive(false);
+        } else if (productivity >= 20 && productivity < 40) {
+            plantas_1.SetActive(true);
+            plantas_2.SetActive(false);
+            plantas_3.SetActive(false);
+            plantas_4.SetActive(false);
+        } else if (productivity >= 40 && productivity < 60) {
+            plantas_1.SetActive(false);
+            plantas_2.SetActive(true);
+            plantas_3.SetActive(false);
+            plantas_4.SetActive(false);
+        } else if (productivity >= 60 && productivity < 80) {
+            plantas_1.SetActive(false);
+            plantas_2.SetActive(false);
+            plantas_3.SetActive(true);
+            plantas_4.SetActive(false);
+        } else if (productivity >= 80) {
+            plantas_1.SetActive(false);
+            plantas_2.SetActive(false);
+            plantas_3.SetActive(false);
+            plantas_4.SetActive(true);
         }
     }
 }

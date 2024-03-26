@@ -25,6 +25,10 @@ public class CardManager : MonoBehaviour
     public int ruin = 0;
     // Crear una variable de tipo int llamada límite
     public int limit = 0;
+    // Referencia al letrero de dinero
+    public TMPro.TextMeshProUGUI letretoDinero;
+    // Crear una variable de tipo int para el dinero
+    public int dinero = 0;
     private void Start()
     {
         enabledThrow = true;
@@ -51,7 +55,11 @@ public class CardManager : MonoBehaviour
         } else if (dificultad == "hard" && season == "summerWinter")
         {
             limit = 40;
-        }     
+        }
+        // Inicializar el dinero en 0
+        dinero = 0;
+        // Actualizar el letrero de dinero
+        UpdateMoney(0);     
     }
     // Crear una función para lanzar una carta buena
     public void ThrowGoodCard()
@@ -104,5 +112,11 @@ public class CardManager : MonoBehaviour
                 ThrowSpecialCard();
             }
         }
+    }
+    // Crear una función para actualizar el letrero de dinero y que reciba un valor de tipo int
+    public void UpdateMoney(int money)
+    {
+        dinero += money;
+        letretoDinero.text = dinero.ToString();
     }
 }
