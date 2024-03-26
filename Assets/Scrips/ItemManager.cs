@@ -47,7 +47,7 @@ public class ItemManager : MonoBehaviour
     public void UseFertilizer()
     {
         Parcela activeParcel = FindActiveParcel();
-        if (fertilizer > 0 && activeParcel != null && activeParcel.fertilizer < 2)
+        if (fertilizer > 0 && activeParcel != null && activeParcel.fertilizer < 2 && activeParcel.unlocked)
         {
             fertilizer--;
             fertilizerText.text = fertilizer.ToString();
@@ -60,7 +60,7 @@ public class ItemManager : MonoBehaviour
     public void UseIrrigation()
     {
         Parcela activeParcel = FindActiveParcel();
-        if (irrigation > 0 && activeParcel != null)
+        if (irrigation > 0 && activeParcel != null && activeParcel.unlocked)
         {
             irrigation--;
             irrigationText.text = irrigation.ToString();
@@ -71,7 +71,7 @@ public class ItemManager : MonoBehaviour
     public void UseTool()
     {
         Parcela activeParcel = FindActiveParcel();
-        if (tool > 0 && activeParcel != null && activeParcel.tool < 1)
+        if (tool > 0 && activeParcel != null && activeParcel.tool < 1 && activeParcel.unlocked)
         {
             tool--;
             toolText.text = tool.ToString();
@@ -93,7 +93,7 @@ public class ItemManager : MonoBehaviour
     public void UseWorker()
     {
         Parcela activeParcel = FindActiveParcel();
-        if (worker > 0 && activeParcel != null && activeParcel.worker < 2)
+        if (worker > 0 && activeParcel != null && activeParcel.worker < 2 && activeParcel.unlocked)
         {
             worker--;
             workerText.text = worker.ToString();
@@ -115,5 +115,39 @@ public class ItemManager : MonoBehaviour
         seedText.text = seed.ToString();
         // Actualizar el texto de trabajador
         workerText.text = worker.ToString();
+    }
+    // Método para encontrar una parcela desbloqueada y con productividad menor a 100, y añadirle productividad
+    public void AddProductivity()
+    {
+        // Crear un ciclo para recorrer el arreglo de parcelas
+        foreach (Parcela parcela in parcelas)
+        {
+            // Verificar si la parcela está desbloqueada y tiene productividad menor a 100
+            if (parcela.unlocked && parcela.productivity < 100)
+            {
+                // Añadir productividad
+                parcela.productivity += 10;
+                parcela.EnablePlants();
+                // Salir del ciclo
+                break;
+            }
+        }
+    }
+    // Método para encontrar una parcela desbloqueada y con productividad mayor a 0, y restarle productividad
+    public void SubstractProductivity()
+    {
+        // Crear un ciclo para recorrer el arreglo de parcelas
+        foreach (Parcela parcela in parcelas)
+        {
+            // Verificar si la parcela está desbloqueada y tiene productividad mayor a 0
+            if (parcela.unlocked && parcela.productivity > 0)
+            {
+                // Restar productividad
+                parcela.productivity -= 10;
+                parcela.EnablePlants();
+                // Salir del ciclo
+                break;
+            }
+        }
     }
 }

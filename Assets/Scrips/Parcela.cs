@@ -24,6 +24,8 @@ public class Parcela : MonoBehaviour
     public GameObject plantas_2;
     public GameObject plantas_3;
     public GameObject plantas_4;
+    // Variable para parcela desbloqueada
+    public bool unlocked;
     // Detectar la colisión con el jugador
     private void Start()
     {
