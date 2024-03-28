@@ -53,6 +53,7 @@ public class Parcela : MonoBehaviour
         if (GameObject.Find("ItemManager").GetComponent<ItemManager>().CheckThree()) {
             GameObject.Find("ItemManager").GetComponent<ItemManager>().RestarTres();
             unlocked = true;
+            GameObject.Find("BarManager").GetComponent<BarManager>().numParcelas++;
             letreroDesbloquear.SetActive(false);
             GameObject.Find("CardManager").GetComponent<CardManager>().numCrops++;
             GameObject.Find("ItemManager").GetComponent<ItemManager>().unlockedParcels++;
@@ -61,6 +62,8 @@ public class Parcela : MonoBehaviour
             worker = 2;
             productivity = 30;
             EnablePlants();
+            GameObject.Find("BarManager").GetComponent<BarManager>().numParcelas++;
+            GameObject.Find("BarManager").GetComponent<BarManager>().CountProd();
         } else {
             letreroDesbloquear.SetActive(false);
             noSuficientes.SetActive(true);

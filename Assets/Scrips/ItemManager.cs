@@ -60,6 +60,7 @@ public class ItemManager : MonoBehaviour
             activeParcel.fertilizer++;
             activeParcel.productivity += 10;
             activeParcel.EnablePlants();
+            GameObject.Find("BarManager").GetComponent<BarManager>().CountProd();
         }
     }
     // Método para restar un item de riego y actualizar el texto
@@ -84,6 +85,7 @@ public class ItemManager : MonoBehaviour
             activeParcel.tool++;
             activeParcel.productivity += 10;
             activeParcel.EnablePlants();
+            GameObject.Find("BarManager").GetComponent<BarManager>().CountProd();
         }
     }
     // Método para restar un item de semilla y actualizar el texto
@@ -106,6 +108,7 @@ public class ItemManager : MonoBehaviour
             activeParcel.worker++;
             activeParcel.productivity += 10;
             activeParcel.EnablePlants();
+            GameObject.Find("BarManager").GetComponent<BarManager>().CountProd();
         }
     }
     // Método para actualizar los textos de la interfaz para todos los items
@@ -134,6 +137,7 @@ public class ItemManager : MonoBehaviour
                 // Añadir productividad
                 parcela.productivity += 10;
                 parcela.EnablePlants();
+                GameObject.Find("BarManager").GetComponent<BarManager>().CountProd();
                 // Salir del ciclo
                 break;
             }
@@ -152,6 +156,7 @@ public class ItemManager : MonoBehaviour
                 parcela.worker--;
                 parcela.productivity -= 10;
                 parcela.EnablePlants();
+                GameObject.Find("BarManager").GetComponent<BarManager>().CountProd();
                 // Salir del ciclo
                 break;
             }
@@ -175,6 +180,7 @@ public class ItemManager : MonoBehaviour
                 parcela.worker = 0;
                 parcela.EnablePlants();
                 unlockedParcels--;
+                GameObject.Find("BarManager").GetComponent<BarManager>().CountProd();
                 // Salir del ciclo
                 break;
             }
