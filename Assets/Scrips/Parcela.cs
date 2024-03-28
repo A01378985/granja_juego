@@ -26,6 +26,8 @@ public class Parcela : MonoBehaviour
     public GameObject plantas_4;
     // Variable para parcela desbloqueada
     public bool unlocked;
+    public GameObject letreroDesbloquear;
+    public GameObject noSuficientes;
     // Detectar la colisión con el jugador
     private void Start()
     {
@@ -42,12 +44,38 @@ public class Parcela : MonoBehaviour
         plantas_3.SetActive(false);
         plantas_4.SetActive(false);
     }
+    private void Update() {
+    if (activeParcel && !unlocked && Input.GetKeyDown(KeyCode.E)) {
+        int fichasTrabajador = GameObject.Find("ItemManager").GetComponent<ItemManager>().worker;
+        int fichasAgua = GameObject.Find("ItemManager").GetComponent<ItemManager>().irrigation;
+        int fichasHerramienta = GameObject.Find("ItemManager").GetComponent<ItemManager>().tool;
+        int fichasSemilla = GameObject.Find("ItemManager").GetComponent<ItemManager>().seed;
+        if (GameObject.Find("ItemManager").GetComponent<ItemManager>().CheckThree()) {
+            GameObject.Find("ItemManager").GetComponent<ItemManager>().RestarTres();
+            unlocked = true;
+            letreroDesbloquear.SetActive(false);
+            GameObject.Find("CardManager").GetComponent<CardManager>().numCrops++;
+            GameObject.Find("ItemManager").GetComponent<ItemManager>().unlockedParcels++;
+            water = 2;
+            tool = 1;
+            worker = 2;
+            productivity = 30;
+            EnablePlants();
+        } else {
+            letreroDesbloquear.SetActive(false);
+            noSuficientes.SetActive(true);
+        }
+    }
+}
     // Detectar la colisión con el jugador
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.CompareTag("Player")) {
             activeParcel = true;
             spriteRendererNormal.enabled = false;
             spriteRendererActive.enabled = true;
+            if (!unlocked) {
+                letreroDesbloquear.SetActive(true);
+            }
         }
     }
     // Detectar la salida de la colisión con el jugador
@@ -56,6 +84,8 @@ public class Parcela : MonoBehaviour
             activeParcel = false;
             spriteRendererNormal.enabled = true;
             spriteRendererActive.enabled = false;
+            letreroDesbloquear.SetActive(false);
+            noSuficientes.SetActive(false);
         }
     }
     // Habilitar GameObjects de acuerdo con la productividad de la parcela

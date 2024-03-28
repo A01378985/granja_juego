@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,6 +17,8 @@ public class ItemManager : MonoBehaviour
     public int seed = 3;
     // Crear una variable de tipo int para item trabajador
     public int worker = 3;
+    // Variable int para el número de parcelas desbloqueadas
+    public int unlockedParcels = 0;
     // Referencias a los objetos text mesh pro ugui
     public TMPro.TextMeshProUGUI fertilizerText;
     public TMPro.TextMeshProUGUI irrigationText;
@@ -26,6 +29,9 @@ public class ItemManager : MonoBehaviour
     {
         // Actualizar los textos de la interfaz
         UpdateTexts();
+        // Actualizar las parcelas desbloqueadas con base en la variable unlocked de cada parcela
+        unlockedParcels = CountParcels();
+        GameObject.Find("CardManager").GetComponent<CardManager>().numCrops = unlockedParcels;
     }
     // Método para encontrar la parcela activa
     public Parcela FindActiveParcel()
@@ -140,14 +146,71 @@ public class ItemManager : MonoBehaviour
         foreach (Parcela parcela in parcelas)
         {
             // Verificar si la parcela está desbloqueada y tiene productividad mayor a 0
-            if (parcela.unlocked && parcela.productivity > 0)
+            if (parcela.unlocked && parcela.worker > 1)
             {
                 // Restar productividad
+                parcela.worker--;
                 parcela.productivity -= 10;
                 parcela.EnablePlants();
                 // Salir del ciclo
                 break;
             }
         }
+    }
+    // Función para bloquear una parcela y reestablecer sus valores
+    public void RuinParcel()
+    {
+        // Crear un ciclo para recorrer el arreglo de parcelas
+        foreach (Parcela parcela in parcelas)
+        {
+            // Verificar si la parcela está activa
+            if (parcela.unlocked)
+            {
+                // Bloquear la parcela
+                parcela.unlocked = false;
+                parcela.productivity = 0;
+                parcela.water = 0;
+                parcela.fertilizer = 0;
+                parcela.tool = 0;
+                parcela.worker = 0;
+                parcela.EnablePlants();
+                unlockedParcels--;
+                // Salir del ciclo
+                break;
+            }
+        }
+    }
+    // Función para actualizar las parcelas desbloqueadas con base en la variable unlocked de cada parcela
+    public int CountParcels()
+    {
+        foreach (Parcela parcela in parcelas)
+        {
+            if (parcela.unlocked)
+            {
+                unlockedParcels++;
+            }
+        }
+        return unlockedParcels;
+    }
+    // Función para restar 3 items de cada tipo y desbloquear una parcela
+    public void RestarTres()
+    {
+        tool -= 3;
+        toolText.text = tool.ToString();
+        seed -= 3;
+        seedText.text = seed.ToString();
+        worker -= 3;
+        workerText.text = worker.ToString();
+        irrigation -= 3;
+        irrigationText.text = irrigation.ToString();
+    }
+    // Función para revisar si hay 3 o más ítems de cada tipo
+    public bool CheckThree()
+    {
+        if (tool >= 3 && seed >= 3 && worker >= 3 && irrigation >= 3)
+        {
+            return true;
+        }
+        return false;
     }
 }

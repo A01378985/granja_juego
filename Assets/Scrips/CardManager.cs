@@ -18,7 +18,7 @@ public class CardManager : MonoBehaviour
     // Crear una variable de tipo string para primavera-otono o para verano-invierno
     public string season = "springAutumn"; // springAutumn, summerWinter
     // Crear una variable de tipo int para el número de parcelas
-    public int numCrops = 1;
+    public int numCrops;
     // Crear una variable de tipo int para el número de cartas tiradas
     public int numCards = 0;
     // Crear una variable de tipo int para el número de cartas ruin tiradas
@@ -59,7 +59,7 @@ public class CardManager : MonoBehaviour
         // Inicializar el dinero en 0
         dinero = 0;
         // Actualizar el letrero de dinero
-        UpdateMoney(0);     
+        UpdateMoney(0);
     }
     // Crear una función para lanzar una carta buena
     public void ThrowGoodCard()

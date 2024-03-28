@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<title>Quantum Robotics Dashboard</title>
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
+		name='viewport' />
+	<link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.min.css')}}">
+	<link rel="stylesheet" href="{{url_for('static', filename='css/ready.css')}}">
+	<link rel="shortcut icon" href="#">
+
+	<script src="{{url_for('static', filename='js/config.js')}}"></script>
+	<script src="{{url_for('static', filename='js/plugin/roslib.min.js')}}"></script>
+
+</head>
+
+<body>
+	<div class="wrapper">
+		<div class="main-header">
+			<div class="logo-header">
+				<a href="/" class="logo">
+					<img src="{{url_for('static', filename='img/QLogo.png')}}" width="41" height="32">
+					<small>Quantum Robotics</small>
+				</a>
+				<button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse"
+					data-target="collapse" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<button class="topbar-toggler more"><i class="la la-ellipsis-v"></i></button>
+			</div>
+			<nav class="navbar navbar-header navbar-expand-lg">
+				<div class="container-fluid">
+					<div class="navbar-left navbar-form nav-search mr-md-3">
+						<img src="{{url_for('static', filename='img/upiita.png')}}" width="41" height="32">
+						<img src="{{url_for('static', filename='img/tec.png')}}" width="41" height="32">
+						<img src="{{url_for('static', filename='img/uanl.png')}}" width="64" height="32">
+						<img src="{{url_for('static', filename='img/UNAM.png')}}" width="28" height="32">
+					</div>
+					<ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
+						<li class="nav-item dropdown hidden-caret">
+							<div class="nav-link dropdown-toggle">
+								University Rover Challenge, June 2022.
+								<img src="{{url_for('static', filename='img/mexico.png')}}" width="41" height="26">
+							</div>
+						</li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+
+		
+		<div class="sidebar">
+            {% include "sb.html"%}
+        </div>
+		
+		<div class="main-panel">
+			<div class="content">
+				<div class="container-fluid">
+					<h4 class="page-title">Dashboard Nav</h4>
+					<button id = "secondary button3" type="button" class="btn btn-secondary" onclick="change_camera('USB0');" style="margin-bottom: 25px; background-color:#0C76C4; border-color:#F4F4F4; color:white">USB0</button>
+					<button id = "secondary button3" type="button" class="btn btn-secondary" onclick="change_camera('USB1');" style="margin-bottom: 25px; background-color:#0C76C4; border-color:#F4F4F4; color:white">USB1</button>
+					<button id = "secondary button3" type="button" class="btn btn-secondary" onclick="change_camera('Zed');" style="margin-bottom: 25px; background-color:#0C76C4; border-color:#F4F4F4; color:white">Zed</button>
+					<div class="row" id="cam-main">	
+						<div class="col-lg-6" id="cam-card">
+							<div class="card" id="cam-canvas">
+								<div class="card-header">
+									<h4 class="card-title">Camera 1</h4>
+									<p class="card-category">Zed</p>
+								</div>
+								<div class="card-body">
+									<div class="col-lg-6">
+										<img src ="" id="Zed_Camera" width="1080" height="720">
+									</div>
+								</div>	
+							</div>
+						</div>
+						<div class= "card" id="cam-bar">
+							<div class="card card-header">
+								<h4 class="card title">Simple Drive</h4>
+							</div>
+							<div class="class body">
+								<div class="col-lg-6">
+								<button id = "secondary button3" type="button" class="btn btn-secondary" onclick="activate_simpledrive(true);" style="margin-bottom: 25px; background-color:#0C76C4; border-color:#F4F4F4; color:white">ON
+								<button id = "secondary button3" type="button" class="btn btn-secondary" onclick="activate_simpledrive(false);" style="margin-bottom: 25px; background-color:#0C76C4; border-color:#F4F4F4; color:white">OFF
+							</div>	
+					</div>		
+				</div>	
+			</div>
+		</div>
+	</div>
+</body>
+
+<script src="{{url_for('static', filename='js/index.js')}}"></script>
+<script src="{{url_for('static', filename='js/core/jquery.3.2.1.min.js')}}"></script>
+
+</html>
