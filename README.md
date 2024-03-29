@@ -26,7 +26,7 @@ En cropopoly, buscarás la manera de completar esta aventura en la que a través
 - Ángel Jonathan García Márquez
 
 
-## Derechos de Uso del Juego
+## Derechos de Uso de Código Fuente y de Juego 
 
 Todos los derechos de uso y propiedad intelectual del juego Cropopoly pertenecen al Tecnológico de Monterrey y a la compañía Verqor. El juego y su contenido están protegidos por las leyes de propiedad intelectual y otros tratados internacionales. El uso no autorizado, la reproducción o distribución del juego o cualquier parte del mismo están estrictamente prohibidos y pueden constituir una violación de las leyes aplicables.
 
