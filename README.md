@@ -32,9 +32,9 @@ Todos los derechos de uso y propiedad intelectual del juego Cropopoly pertenecen
 
 ## Desarrollo
 
-Desarrollado por: Arturo Barrios Mendoza, Lucio Arturo Reyes Castillo, Alejandra Estefanía Rico González, Fidel Alexander Bonilla Montalvo y Mariana Balderrábano Aguilar. 
-Arte y Gráficos por: Arturo Barrios Mendoza, Blackspire (https://blackspirestudio.com/), Cup Nooble (https://cupnooble.carrd.co/), Fidel Alexander Bonilla Montalvo y Fun-gus.
-Música por: Arturo Barrios Mendoza. 
+- Desarrollado por: Arturo Barrios Mendoza, Lucio Arturo Reyes Castillo, Alejandra Estefanía Rico González, Fidel Alexander Bonilla Montalvo y Mariana Balderrábano Aguilar. 
+- Arte y Gráficos por: Arturo Barrios Mendoza, Blackspire (https://blackspirestudio.com/), Cup Nooble (https://cupnooble.carrd.co/), Fidel Alexander Bonilla Montalvo y Fun-gus.
+- Música por: Arturo Barrios Mendoza. 
 
 
 ## Licencias de Uso
