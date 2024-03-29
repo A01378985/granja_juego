@@ -30,8 +30,16 @@ En cropopoly, buscarás la manera de completar esta aventura en la que a través
 
 Todos los derechos de uso y propiedad intelectual del juego Cropopoly pertenecen al Tecnológico de Monterrey y a la compañía Verqor. El juego y su contenido están protegidos por las leyes de propiedad intelectual y otros tratados internacionales. El uso no autorizado, la reproducción o distribución del juego o cualquier parte del mismo están estrictamente prohibidos y pueden constituir una violación de las leyes aplicables.
 
+## Desarrollo
+
+Desarrollado por: Arturo Barrios Mendoza, Lucio Arturo Reyes Castillo, Alejandra Estefanía Rico González, Fidel Alexander Bonilla Montalvo y Mariana Balderrábano Aguilar. 
+Arte y Gráficos por: Arturo Barrios Mendoza, Blackspire (https://blackspirestudio.com/), Cup Nooble (https://cupnooble.carrd.co/), Fidel Alexander Bonilla Montalvo y Fun-gus.
+Música por: Arturo Barrios Mendoza. 
+
 
 ## Licencias de Uso
+
+
 
 
 
