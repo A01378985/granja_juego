@@ -20,10 +20,10 @@ En cropopoly, buscarás la manera de completar esta aventura en la que a través
 
 ## Profesores
 
-Ariel Ortíz Ramírez
-Roberto Martínez Román
-Enrique González Nuñez
-Ángel Jonathan García Márquez
+- Ariel Ortíz Ramírez
+- Roberto Martínez Román
+- Enrique González Nuñez
+- Ángel Jonathan García Márquez
 
 
 ## Derechos de Uso del Juego
