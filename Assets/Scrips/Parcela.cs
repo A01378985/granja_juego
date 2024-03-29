@@ -62,7 +62,6 @@ public class Parcela : MonoBehaviour
             worker = 2;
             productivity = 30;
             EnablePlants();
-            GameObject.Find("BarManager").GetComponent<BarManager>().numParcelas++;
             GameObject.Find("BarManager").GetComponent<BarManager>().CountProd();
         } else {
             letreroDesbloquear.SetActive(false);

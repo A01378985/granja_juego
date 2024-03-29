@@ -21,7 +21,7 @@ public class BarManager : MonoBehaviour
     // Variable para estación
     public int season;
     // Variable para productividad actual
-    public int currentProd;
+    public double currentProd;
     void Start()
     {
         RandomHum();
@@ -30,7 +30,7 @@ public class BarManager : MonoBehaviour
         // Inicializar la productividad en 0
         currentProd = 0;
         // Inicializar el número de parcelas en 0
-        numParcelas = GameObject.Find("ItemManager").GetComponent<ItemManager>().CountParcels();
+        CountParcels();
         SetHumBar();
     }
     // Método para habilitar el objeto correcto de la barra de humedad
@@ -87,6 +87,52 @@ public class BarManager : MonoBehaviour
         foreach (Parcela parcela in parcelas) {
             // Sumar la productividad de cada parcela a la productividad total
             currentProd += parcela.productivity;
+        }
+        double percentage = currentProd / (numParcelas * 100);
+        Debug.Log("Porcentaje actual: " + percentage);
+        SetProdBar(percentage);
+    }
+    // Método para habilitar el objeto correcto de la barra de productividad con base en ProdPercentage
+    public void SetProdBar(double p) {
+        double percentage = p;
+        // Deshabilitar todos los objetos de la barra de productividad
+        foreach (GameObject prodBar in prodBars) {
+            prodBar.SetActive(false);
+        }
+        // Recorrer el array de barras de productividad
+        if (percentage <= 0.1 && percentage > 0) {
+            prodBars[0].SetActive(true);
+        } else if (percentage <= 0.2) {
+            prodBars[1].SetActive(true);
+        } else if (percentage <= 0.3) {
+            prodBars[2].SetActive(true);
+        } else if (percentage <= 0.4) {
+            prodBars[3].SetActive(true);
+        } else if (percentage <= 0.5) {
+            prodBars[4].SetActive(true);
+        } else if (percentage <= 0.6) {
+            prodBars[5].SetActive(true);
+        } else if (percentage <= 0.7) {
+            prodBars[6].SetActive(true);
+        } else if (percentage <= 0.8) {
+            prodBars[7].SetActive(true);
+        } else if (percentage <= 0.9) {
+            prodBars[8].SetActive(true);
+        } else if (percentage <= 1) {
+            prodBars[9].SetActive(true);
+        }
+    }
+    // Método para contar parcelas unlocked
+    public void CountParcels() {
+        // Inicializar el número de parcelas en 0
+        numParcelas = 0;
+        // Recorrer el array de parcelas
+        foreach (Parcela parcela in parcelas) {
+            // Verificar si la parcela está desbloqueada
+            if (parcela.unlocked) {
+                // Sumar 1 al número de parcelas
+                numParcelas++;
+            }
         }
     }
 }
