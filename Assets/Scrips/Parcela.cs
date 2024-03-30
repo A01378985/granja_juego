@@ -45,30 +45,30 @@ public class Parcela : MonoBehaviour
         plantas_4.SetActive(false);
     }
     private void Update() {
-    if (activeParcel && !unlocked && Input.GetKeyDown(KeyCode.E)) {
-        int fichasTrabajador = GameObject.Find("ItemManager").GetComponent<ItemManager>().worker;
-        int fichasAgua = GameObject.Find("ItemManager").GetComponent<ItemManager>().irrigation;
-        int fichasHerramienta = GameObject.Find("ItemManager").GetComponent<ItemManager>().tool;
-        int fichasSemilla = GameObject.Find("ItemManager").GetComponent<ItemManager>().seed;
-        if (GameObject.Find("ItemManager").GetComponent<ItemManager>().CheckThree()) {
-            GameObject.Find("ItemManager").GetComponent<ItemManager>().RestarTres();
-            unlocked = true;
-            GameObject.Find("BarManager").GetComponent<BarManager>().numParcelas++;
-            letreroDesbloquear.SetActive(false);
-            GameObject.Find("CardManager").GetComponent<CardManager>().numCrops++;
-            GameObject.Find("ItemManager").GetComponent<ItemManager>().unlockedParcels++;
-            water = 2;
-            tool = 1;
-            worker = 2;
-            productivity = 30;
-            EnablePlants();
-            GameObject.Find("BarManager").GetComponent<BarManager>().CountProd();
-        } else {
-            letreroDesbloquear.SetActive(false);
-            noSuficientes.SetActive(true);
+        if (activeParcel && !unlocked && Input.GetKeyDown(KeyCode.E)) {
+            int fichasTrabajador = GameObject.Find("ItemManager").GetComponent<ItemManager>().worker;
+            int fichasAgua = GameObject.Find("ItemManager").GetComponent<ItemManager>().irrigation;
+            int fichasHerramienta = GameObject.Find("ItemManager").GetComponent<ItemManager>().tool;
+            int fichasSemilla = GameObject.Find("ItemManager").GetComponent<ItemManager>().seed;
+            if (GameObject.Find("ItemManager").GetComponent<ItemManager>().CheckThree()) {
+                GameObject.Find("ItemManager").GetComponent<ItemManager>().RestarTres();
+                unlocked = true;
+                GameObject.Find("BarManager").GetComponent<BarManager>().numParcelas++;
+                letreroDesbloquear.SetActive(false);
+                GameObject.Find("CardManager").GetComponent<CardManager>().numCrops++;
+                GameObject.Find("ItemManager").GetComponent<ItemManager>().unlockedParcels++;
+                water = 2;
+                tool = 1;
+                worker = 2;
+                productivity = 30;
+                EnablePlants();
+                GameObject.Find("BarManager").GetComponent<BarManager>().CountProd();
+            } else {
+                letreroDesbloquear.SetActive(false);
+                noSuficientes.SetActive(true);
+            }
         }
     }
-}
     // Detectar la colisión con el jugador
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.CompareTag("Player")) {

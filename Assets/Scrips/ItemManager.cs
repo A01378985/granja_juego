@@ -8,15 +8,15 @@ public class ItemManager : MonoBehaviour
     // Crear un arreglo de objetos de tipo Parcela
     public List<Parcela> parcelas = new List<Parcela>();
     // Crear una variable de tipo int para item fertilizante
-    public int fertilizer = 3;
+    public int fertilizer = 0;
     // Crear una variable de tipo int para item riego
-    public int irrigation = 3;
+    public int irrigation = 0;
     // Crear una variable de tipo int para item herramienta
-    public int tool = 3;
+    public int tool = 0;
     // Crear una variable de tipo int para item semilla
-    public int seed = 3;
+    public int seed = 0;
     // Crear una variable de tipo int para item trabajador
-    public int worker = 3;
+    public int worker = 0;
     // Variable int para el número de parcelas desbloqueadas
     public int unlockedParcels = 0;
     // Referencias a los objetos text mesh pro ugui
@@ -218,5 +218,31 @@ public class ItemManager : MonoBehaviour
             return true;
         }
         return false;
+    }
+    // Función que recibe un valor de tipo int e itera sobre todos los items para agregar uno, hasra que iguala el valor recibido
+    public void ReceiveItems(int value)
+    {
+        int itemsPerType = value / 5;
+        int remainder = value % 5;
+
+        fertilizer += itemsPerType;
+        irrigation += itemsPerType;
+        tool += itemsPerType;
+        seed += itemsPerType;
+        worker += itemsPerType;
+
+        for (int i = 0; i < remainder; i++)
+        {
+            switch (i)
+            {
+                case 0: fertilizer++; break;
+                case 1: irrigation++; break;
+                case 2: tool++; break;
+                case 3: seed++; break;
+                case 4: worker++; break;
+            }
+        }
+
+        UpdateTexts();
     }
 }
