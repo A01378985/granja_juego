@@ -14,7 +14,7 @@ public class CardManager : MonoBehaviour
     // Crear una lista de cartas especiales
     public List<Card> specialCards = new List<Card>();
     // Crear una variable de tipo string para la dificultad
-    public string dificultad = "easy"; // easy, medium, hard
+    public string dificultad;// = "easy"; // easy, medium, hard
     // Crear una variable de tipo string para primavera-otono o para verano-invierno
     public string season = "springAutumn"; // springAutumn, summerWinter
     // Crear una variable de tipo int para el número de parcelas
@@ -31,6 +31,9 @@ public class CardManager : MonoBehaviour
     public int dinero = 0;
     private void Start()
     {
+        dificultad = Dificultad.dificultad;
+        // Publicar un mensaje en consola
+        Debug.Log("Dificultad: " + dificultad);
         enabledThrow = true;
         // Modificar el límite
         if (dificultad == "easy" && season == "springAutumn")
