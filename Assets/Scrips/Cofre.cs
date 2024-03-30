@@ -12,6 +12,10 @@ public class Cofre : MonoBehaviour
     public int lessItems;
     public string dificultad;
     public bool insideChest;
+    // Variable GameObject para el cofre cerrado
+    public GameObject closedChest;
+    // Variable GameObject para el cofre abierto
+    public GameObject openChest;
     // Void Start
     private void Start()
     {
@@ -21,6 +25,8 @@ public class Cofre : MonoBehaviour
         extraItems = 0;
         lessItems = 0;
         dificultad = Dificultad.dificultad;
+        closedChest.SetActive(true);
+        openChest.SetActive(false);
     }
     private void Update() {
         if (chestEnabled && insideChest && Input.GetKeyDown(KeyCode.E)) {
@@ -29,6 +35,8 @@ public class Cofre : MonoBehaviour
             int items = GiveItems();
             GameObject.Find("ItemManager").GetComponent<ItemManager>().ReceiveItems(items);
             FindObjectOfType<CardManager>().UpdateMoney(-250000);
+            closedChest.SetActive(false);
+            openChest.SetActive(true);
         }
     }
     // Método para detectar entrada de colisión con el personaje
