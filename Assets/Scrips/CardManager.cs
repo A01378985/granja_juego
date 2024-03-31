@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class CardManager : MonoBehaviour
@@ -27,10 +28,16 @@ public class CardManager : MonoBehaviour
     public int limit = 0;
     // Referencia al letrero de dinero
     public TMPro.TextMeshProUGUI letretoDinero;
+    public GameObject letreroEstacion;
     // Crear una variable de tipo double para el dinero
     public double dinero = 0;
     public double pago = 0;
+    public double tasa = 0;
     public int aumentoRendimiento = 0;
+    public TMPro.TextMeshProUGUI letretoCobrar;
+    public TMPro.TextMeshProUGUI letretoDeuda;
+    public TMPro.TextMeshProUGUI letretoTasa;
+    public TMPro.TextMeshProUGUI letretoPagar;
     private void Start()
     {
         dificultad = Dificultad.dificultad;
@@ -128,10 +135,43 @@ public class CardManager : MonoBehaviour
         letretoDinero.text = dinero.ToString("F2");
     }
     // Método para determinar cuánto dinero recibirá el jugador
-    public void CalcularPago() {
-        pago = 350000 * GameObject.Find("BarManager").GetComponent<BarManager>().currentProd;
+    public void CalcularPago() { // ELIMINAR LOS DEBUG
+        int parcelas = GameObject.Find("BarManager").GetComponent<BarManager>().numParcelas;
+        Debug.Log("Parcelas: " + parcelas);
+        Debug.Log("Productividad: " + GameObject.Find("BarManager").GetComponent<BarManager>().currentProd);
+        pago = 3500 * parcelas * GameObject.Find("BarManager").GetComponent<BarManager>().currentProd;
+        Debug.Log("Pago: " + pago);
         for (int i = 0; i < aumentoRendimiento; i++) {
             pago *= 1.2;
         }
+        Debug.Log("Cartas rendimiento: " + aumentoRendimiento);
+        Debug.Log("Pago: " + pago);
+    }
+    public void DeterminarTasa() {
+        if (dificultad == "easy") {
+            tasa = 1.15;
+        } else if (dificultad == "medium") {
+            tasa = 1.4;
+        } else if (dificultad == "hard") {
+            float parteFlotante = Random.Range(0.0f, 0.5f);
+            tasa = 1.5 + (double)parteFlotante;
+        }
+    }
+    public void LastOne() {
+        if (numCards == 10)
+        {
+            letreroEstacion.SetActive(true);
+            ActualizarLetrerosEstacion();
+        }
+    }
+    public void ActualizarLetrerosEstacion() {
+        CalcularPago();
+        DeterminarTasa();
+        double deuda = GameObject.Find("Cofre").GetComponent<Cofre>().deuda;
+        double total = deuda * tasa;
+        letretoCobrar.text = pago.ToString("F2");
+        letretoDeuda.text = deuda.ToString("F2");
+        letretoTasa.text = tasa.ToString("F2");
+        letretoPagar.text = total.ToString("F2");
     }
 }
