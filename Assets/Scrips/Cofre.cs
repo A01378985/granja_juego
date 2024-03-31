@@ -16,6 +16,8 @@ public class Cofre : MonoBehaviour
     public GameObject closedChest;
     // Variable GameObject para el cofre abierto
     public GameObject openChest;
+    // Variable double para la deuda
+    public double deuda;
     // Void Start
     private void Start()
     {
@@ -34,9 +36,9 @@ public class Cofre : MonoBehaviour
             chestEnabled = false;
             int items = GiveItems();
             GameObject.Find("ItemManager").GetComponent<ItemManager>().ReceiveItems(items);
-            FindObjectOfType<CardManager>().UpdateMoney(-250000);
             closedChest.SetActive(false);
             openChest.SetActive(true);
+            CalculateDebt();
         }
     }
     // Método para detectar entrada de colisión con el personaje
@@ -76,6 +78,17 @@ public class Cofre : MonoBehaviour
         } else
         {
             return 0;
+        }
+    }
+    // Método para calcular la deuda
+    public void CalculateDebt()
+    {
+        double dineroActual = GameObject.Find("CardManager").GetComponent<CardManager>().dinero;
+        if (dineroActual > 0) {
+            deuda = 250000.00 - dineroActual;
+            GameObject.Find("CardManager").GetComponent<CardManager>().UpdateMoney(-dineroActual);
+        } else {
+            deuda = 250000.00;
         }
     }
 }

@@ -7,7 +7,7 @@ public class Card : MonoBehaviour
 {
     public bool isRuin;
     // Referencia de tipo int para valor de dinero
-    public int moneyValue;
+    public double moneyValue;
     // Función activa de nuevo CardManager.enabled
     public void EnableAgain()
     {
@@ -19,5 +19,14 @@ public class Card : MonoBehaviour
     {
         // Buscar el objeto CardManager
         FindObjectOfType<CardManager>().UpdateMoney(moneyValue);
+    }
+    public void AddExtraItem() {
+        GameObject.Find("Cofre").GetComponent<Cofre>().extraItems++;
+    }
+    public void AddLessItem() {
+        GameObject.Find("Cofre").GetComponent<Cofre>().lessItems++;
+    }
+    public void AddAumentoRendimiendo() {
+        GameObject.Find("CardManager").GetComponent<CardManager>().aumentoRendimiento++;
     }
 }

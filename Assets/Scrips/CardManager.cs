@@ -27,8 +27,10 @@ public class CardManager : MonoBehaviour
     public int limit = 0;
     // Referencia al letrero de dinero
     public TMPro.TextMeshProUGUI letretoDinero;
-    // Crear una variable de tipo int para el dinero
-    public int dinero = 0;
+    // Crear una variable de tipo double para el dinero
+    public double dinero = 0;
+    public double pago = 0;
+    public int aumentoRendimiento = 0;
     private void Start()
     {
         dificultad = Dificultad.dificultad;
@@ -60,9 +62,10 @@ public class CardManager : MonoBehaviour
             limit = 40;
         }
         // Inicializar el dinero en 0
-        dinero = 0;
+        dinero = 0.00;
+        pago = 0.00;
         // Actualizar el letrero de dinero
-        UpdateMoney(0);
+        UpdateMoney(0.00);
     }
     // Crear una función para lanzar una carta buena
     public void ThrowGoodCard()
@@ -78,7 +81,7 @@ public class CardManager : MonoBehaviour
     {
         // Publicar un mensaje en consola
         Debug.Log("Bad Card");
-        if (ruin < (numCrops -1)) {
+        if (ruin < (numCrops -2)) {
             Card randomCard = badCards[Random.Range(0, badCards.Count)];
             if ((randomCard == badCards[0]) || (randomCard == badCards[1])) {
                 ruin++;
@@ -117,9 +120,18 @@ public class CardManager : MonoBehaviour
         }
     }
     // Crear una función para actualizar el letrero de dinero y que reciba un valor de tipo int
-    public void UpdateMoney(int money)
+    public void UpdateMoney(double money)
     {
         dinero += money;
-        letretoDinero.text = dinero.ToString();
+        // Display money in the format "0.00"
+        dinero = System.Math.Round(dinero, 2);
+        letretoDinero.text = dinero.ToString("F2");
+    }
+    // Método para determinar cuánto dinero recibirá el jugador
+    public void CalcularPago() {
+        pago = 350000 * GameObject.Find("BarManager").GetComponent<BarManager>().currentProd;
+        for (int i = 0; i < aumentoRendimiento; i++) {
+            pago *= 1.2;
+        }
     }
 }
