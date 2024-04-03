@@ -314,7 +314,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Sencilla
+  m_text: Verqor
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 41aa149ab16a8ed4fb01fdf796f5d1bb, type: 2}
   m_sharedMaterial: {fileID: 6030771419196101779, guid: 41aa149ab16a8ed4fb01fdf796f5d1bb, type: 2}
@@ -2130,7 +2130,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Intermedia
+  m_text: Tradicional
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 41aa149ab16a8ed4fb01fdf796f5d1bb, type: 2}
   m_sharedMaterial: {fileID: 6030771419196101779, guid: 41aa149ab16a8ed4fb01fdf796f5d1bb, type: 2}
@@ -4148,8 +4148,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.4000244, y: 448.92752}
-  m_SizeDelta: {x: 1373.7, y: 123.19}
+  m_AnchoredPosition: {x: -0.0098877, y: 448.93}
+  m_SizeDelta: {x: 1455.9, y: 123.19}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &679278919
 MonoBehaviour:
@@ -4171,7 +4171,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Selecciona la dificultad del juego
+  m_text: Selecciona el tipo de financiamiento
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1002b4959789a5d4c8725c022efbc298, type: 2}
   m_sharedMaterial: {fileID: -3728828629284018424, guid: 1002b4959789a5d4c8725c022efbc298, type: 2}
@@ -7592,11 +7592,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Con la dificultad sencilla tu financiamiento ser\xE1 por medio de Verqor.
-    Tus tasas de inter\xE9s ser\xE1n fijas y bajas. Tambi\xE9n tendr\xE1s un seguro
-    contra cat\xE1strofes, por lo que, si hay sequ\xEDas, inundaciones o plagas,
-    no lo perder\xE1s todo. Los insumos no subir\xE1n de precio. Adem\xE1s, habr\xE1
-    menos eventos negativos."
+  m_text: "Tu financiamiento ser\xE1 por medio de Verqor, tus tasas de inter\xE9s
+    ser\xE1n fijas y bajas. Tambi\xE9n tendr\xE1s un seguro contra cat\xE1strofes,
+    por lo que, si hay sequ\xEDas, inundaciones o plagas, no lo perder\xE1s todo.
+    Los insumos no subir\xE1n de precio. Adem\xE1s, habr\xE1 menos eventos negativos."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1002b4959789a5d4c8725c022efbc298, type: 2}
   m_sharedMaterial: {fileID: -3728828629284018424, guid: 1002b4959789a5d4c8725c022efbc298, type: 2}
@@ -7988,10 +7987,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "En la dificultad intermedia tendr\xE1s un financiamiento tradicional.
-    Tendr\xE1s tasas fijas pero elevadas. No tendr\xE1s seguro en caso de que se
-    arruinen tus cosechas. Los insumos podr\xE1n subir de precio, as\xED que en ocasiones
-    recibir\xE1s menos de ellos. Habr\xE1 mas eventos negativos."
+  m_text: "Con el financiamiento de tipo tradicional, tendr\xE1s tasas fijas pero
+    elevadas. No tendr\xE1s seguro en caso de que se arruinen tus cosechas. Los insumos
+    podr\xE1n subir de precio, as\xED que en ocasiones recibir\xE1s menos de ellos.
+    Habr\xE1 mas eventos negativos."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1002b4959789a5d4c8725c022efbc298, type: 2}
   m_sharedMaterial: {fileID: -3728828629284018424, guid: 1002b4959789a5d4c8725c022efbc298, type: 2}
@@ -8125,11 +8124,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "En el modo dif\xEDcil tendr\xE1s un financiamiento informal. Las tasas
-    de inter\xE9s cambiar\xE1n s\xFAbitamente, por lo que los intereses ser\xE1n
-    m\xE1s altos y nunca sabr\xE1s cu\xE1nto te cobrar\xE1n. No tendr\xE1s seguro
-    y harbr\xE1 muchos m\xE1s eventos negativos, por lo que ser\xE1 m\xE1s f\xE1cil
-    que pierdas tus cultivos. Los precios de los insumos subir\xE1n."
+  m_text: "Con el financiamiento informal, las tasas de inter\xE9s cambiar\xE1n s\xFAbitamente,
+    por lo que los intereses ser\xE1n m\xE1s altos y nunca sabr\xE1s cu\xE1nto te
+    cobrar\xE1n. No tendr\xE1s seguro y harbr\xE1 muchos m\xE1s eventos negativos,
+    por lo que ser\xE1 m\xE1s f\xE1cil que pierdas tus cultivos. Los precios de los
+    insumos subir\xE1n."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1002b4959789a5d4c8725c022efbc298, type: 2}
   m_sharedMaterial: {fileID: -3728828629284018424, guid: 1002b4959789a5d4c8725c022efbc298, type: 2}
@@ -9145,7 +9144,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Dif\xEDcil"
+  m_text: Informal
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 41aa149ab16a8ed4fb01fdf796f5d1bb, type: 2}
   m_sharedMaterial: {fileID: 6030771419196101779, guid: 41aa149ab16a8ed4fb01fdf796f5d1bb, type: 2}

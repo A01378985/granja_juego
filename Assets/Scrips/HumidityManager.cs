@@ -33,7 +33,7 @@ public class HumidityManager : MonoBehaviour
         if (sequia) {
             foreach (Parcela parcela in parcelas)
             {
-                if (parcela.water < 2)
+                if (parcela.water < 2 && parcela.unlocked)
                 {
                     // Bloquear la parcela
                     parcela.unlocked = false;
@@ -51,7 +51,20 @@ public class HumidityManager : MonoBehaviour
         } else if (lluvia) {
             foreach (Parcela parcela in parcelas)
             {
-                if (parcela.water > 2)
+                if (parcela.water > 2 && parcela.unlocked)
+                {
+                    // Bloquear la parcela
+                    parcela.unlocked = false;
+                    parcela.ruined = true;
+                    parcela.productivity = 0;
+                    parcela.water = 0;
+                    parcela.fertilizer = 0;
+                    parcela.tool = 0;
+                    parcela.worker = 0;
+                    parcela.EnablePlants();
+                    GameObject.Find("ItemManager").GetComponent<ItemManager>().unlockedParcels--;
+                    GameObject.Find("BarManager").GetComponent<BarManager>().CountProd();
+                }
                 {
                     // Bloquear la parcela
                     parcela.unlocked = false;
@@ -69,7 +82,7 @@ public class HumidityManager : MonoBehaviour
         } else if (!sequia && !lluvia) {
             foreach (Parcela parcela in parcelas)
             {
-                if (parcela.water < 1 || parcela.water > 7)
+                if ((parcela.water < 1 || parcela.water > 7) && parcela.unlocked)
                 {
                     // Bloquear la parcela
                     parcela.unlocked = false;
