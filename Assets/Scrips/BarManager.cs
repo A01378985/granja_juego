@@ -16,14 +16,18 @@ public class BarManager : MonoBehaviour
     public int hum;
     // Variable para número de parcelas
     public int numParcelas;
-    // Variable para costo de parcela
-    public int costoParcela = 350000;
     // Variable para estación
     public int season;
     // Variable para productividad actual
     public double currentProd;
+    // Variable bool para sequía
+    public bool sequia;
+    // Variable bool para lluvia
+    public bool lluvia;
     void Start()
     {
+        sequia = false;
+        lluvia = false;
         RandomHum();
         // Inicializar la estación en 1
         season = 1;
@@ -44,8 +48,10 @@ public class BarManager : MonoBehaviour
         // Recorrer el array de barras de humedad
         if (hum == 0) {
             humBars[0].SetActive(true);
+            sequia = true;
         } else if (hum == 1) {
             humBars[1].SetActive(true);
+            sequia = true;
         } else if (hum == 2) {
             humBars[2].SetActive(true);
         } else if (hum == 3) {
@@ -60,8 +66,10 @@ public class BarManager : MonoBehaviour
             humBars[7].SetActive(true);
         } else if (hum == 8) {
             humBars[8].SetActive(true);
+            lluvia = true;
         } else if (hum == 9) {
             humBars[9].SetActive(true);
+            lluvia = true;
         } 
     }
     // Método para inicializar la humedad aleatoriamente

@@ -26,12 +26,14 @@ public class Parcela : MonoBehaviour
     public GameObject plantas_4;
     // Variable para parcela desbloqueada
     public bool unlocked;
+    public bool ruined;
     public GameObject letreroDesbloquear;
     public GameObject noSuficientes;
     // Detectar la colisión con el jugador
     private void Start()
     {
         activeParcel = false;
+        ruined = false;
         productivity = 0;
         water = 0;
         fertilizer = 0;
@@ -53,16 +55,23 @@ public class Parcela : MonoBehaviour
             if (GameObject.Find("ItemManager").GetComponent<ItemManager>().CheckThree()) {
                 GameObject.Find("ItemManager").GetComponent<ItemManager>().RestarTres();
                 unlocked = true;
+                ruined = false;
                 GameObject.Find("BarManager").GetComponent<BarManager>().numParcelas++;
                 letreroDesbloquear.SetActive(false);
                 GameObject.Find("CardManager").GetComponent<CardManager>().numCrops++;
                 GameObject.Find("ItemManager").GetComponent<ItemManager>().unlockedParcels++;
-                water = 2;
                 tool = 1;
                 worker = 2;
                 productivity = 30;
                 EnablePlants();
                 GameObject.Find("BarManager").GetComponent<BarManager>().CountProd();
+                if (GameObject.Find("BarManager").GetComponent<BarManager>().sequia) {
+                    water = 3;
+                } else if (GameObject.Find("BarManager").GetComponent<BarManager>().lluvia) {
+                    water = 0;
+                } else {
+                    water = 2;
+                }
             } else {
                 letreroDesbloquear.SetActive(false);
                 noSuficientes.SetActive(true);

@@ -8,6 +8,7 @@ public class Cofre : MonoBehaviour
     public bool chestEnabled;
     // Variable GameObject para el letrero de abrir
     public GameObject letreroCofre;
+    public GameObject letreroCofreBloqueado;
     public int extraItems;
     public int lessItems;
     public string dificultad;
@@ -50,6 +51,8 @@ public class Cofre : MonoBehaviour
             // Activar el letrero de abrir
             letreroCofre.SetActive(true);
             insideChest = true;
+        } else if (!chestEnabled && collision.CompareTag("Player")) {
+            letreroCofreBloqueado.SetActive(true);
         }
     }
     // Método para detectar salida de colisión con el personaje
@@ -61,6 +64,8 @@ public class Cofre : MonoBehaviour
             // Desactivar el letrero de abrir
             letreroCofre.SetActive(false);
             insideChest = false;
+        } else if (!chestEnabled && collision.CompareTag("Player")) {
+            letreroCofreBloqueado.SetActive(false);
         }
     }
     // Método para determinar cuántos items dar

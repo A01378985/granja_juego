@@ -173,6 +173,7 @@ public class ItemManager : MonoBehaviour
             {
                 // Bloquear la parcela
                 parcela.unlocked = false;
+                parcela.ruined = true;
                 parcela.productivity = 0;
                 parcela.water = 0;
                 parcela.fertilizer = 0;

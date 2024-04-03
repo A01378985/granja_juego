@@ -160,6 +160,7 @@ public class CardManager : MonoBehaviour
     public void LastOne() {
         if (numCards == 10)
         {
+            GameObject.Find("HumidityManager").GetComponent<HumidityManager>().CheckIrrigation();
             letreroEstacion.SetActive(true);
             ActualizarLetrerosEstacion();
         }
