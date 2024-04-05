@@ -143,4 +143,34 @@ public class BarManager : MonoBehaviour
             }
         }
     }
+    public void NextSeason() {
+        season++;
+        if (season > 4) {
+            season = 1;
+        }
+        SetSeasonBar();
+    }
+    public void SetSeasonBar() {
+        if (season == 1) {
+            seasonBars[0].SetActive(true);
+            seasonBars[1].SetActive(false);
+            seasonBars[2].SetActive(false);
+            seasonBars[3].SetActive(false);
+        } else if (season == 2) {
+            seasonBars[1].SetActive(true);
+            seasonBars[0].SetActive(false);
+            seasonBars[2].SetActive(false);
+            seasonBars[3].SetActive(false);
+        } else if (season == 3) {
+            seasonBars[2].SetActive(true);
+            seasonBars[0].SetActive(false);
+            seasonBars[1].SetActive(false);
+            seasonBars[3].SetActive(false);
+        } else if (season == 4) {
+            seasonBars[3].SetActive(true);
+            seasonBars[0].SetActive(false);
+            seasonBars[1].SetActive(false);
+            seasonBars[2].SetActive(false);
+        }
+    }
 }

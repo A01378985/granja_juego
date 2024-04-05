@@ -5,17 +5,26 @@ using UnityEngine;
 
 public class PausaManager : MonoBehaviour
 {
-    //este código pausa completamente el juego al momento de tocar el botón específico
-    public GameObject pruebaPausa;
-
-    public void PausarBoton()
+    // Referencia al GameObject del panel pausa
+    public GameObject panelPausa;
+    // estado del juego, pausado o no
+    public bool estaPausado = false;
+    // función para pausar el juego
+    public void Pausar()
     {
-        pruebaPausa.SetActive(true);
+        // cambiar el estado del juego
+        estaPausado = true;
+        // activar o desactivar el panel de pausa
+        panelPausa.SetActive(true);
+        Time.timeScale = (estaPausado) ? 0 : 1;
     }
-
-    public void Continar()
+    public void Reanudar()
     {
-        pruebaPausa.SetActive(false);
+        // cambiar el estado del juego
+        estaPausado = false;
+        // activar o desactivar el panel de pausa
+        panelPausa.SetActive(false);
+        Time.timeScale = (estaPausado) ? 0 : 1;
     }
 }
 

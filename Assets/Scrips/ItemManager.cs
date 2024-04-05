@@ -246,4 +246,15 @@ public class ItemManager : MonoBehaviour
 
         UpdateTexts();
     }
+    // Función para reestablecer el agua en todas las parcelas desbloqueadas
+    public void ResetWater()
+    {
+        foreach (Parcela parcela in parcelas)
+        {
+            if (parcela.unlocked)
+            {
+                parcela.water = 0;
+            }
+        }
+    }
 }

@@ -40,6 +40,8 @@ public class Cofre : MonoBehaviour
             closedChest.SetActive(false);
             openChest.SetActive(true);
             CalculateDebt();
+            extraItems = 0;
+            lessItems = 0;
         }
     }
     // Método para detectar entrada de colisión con el personaje
