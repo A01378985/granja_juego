@@ -38,6 +38,7 @@ public class CardManager : MonoBehaviour
     public TMPro.TextMeshProUGUI letretoDeuda;
     public TMPro.TextMeshProUGUI letretoTasa;
     public TMPro.TextMeshProUGUI letretoPagar;
+    public double total = 0;
     private void Start()
     {
         dificultad = Dificultad.dificultad;
@@ -92,7 +93,6 @@ public class CardManager : MonoBehaviour
             Card randomCard = badCards[Random.Range(0, badCards.Count)];
             if ((randomCard == badCards[0]) || (randomCard == badCards[1])) {
                 ruin++;
-                numCrops--;
             }
             randomCard.gameObject.SetActive(true);
         } else {
@@ -139,7 +139,7 @@ public class CardManager : MonoBehaviour
         int parcelas = GameObject.Find("BarManager").GetComponent<BarManager>().numParcelas;
         Debug.Log("Parcelas: " + parcelas);
         Debug.Log("Productividad: " + GameObject.Find("BarManager").GetComponent<BarManager>().currentProd);
-        pago = 3500 * parcelas * GameObject.Find("BarManager").GetComponent<BarManager>().currentProd;
+        pago = 3500 * GameObject.Find("BarManager").GetComponent<BarManager>().currentProd;
         Debug.Log("Pago: " + pago);
         for (int i = 0; i < aumentoRendimiento; i++) {
             pago *= 1.2;
@@ -169,10 +169,14 @@ public class CardManager : MonoBehaviour
         CalcularPago();
         DeterminarTasa();
         double deuda = GameObject.Find("Cofre").GetComponent<Cofre>().deuda;
-        double total = deuda * tasa;
+        total = deuda * tasa;
         letretoCobrar.text = pago.ToString("F2");
         letretoDeuda.text = deuda.ToString("F2");
         letretoTasa.text = tasa.ToString("F2");
         letretoPagar.text = total.ToString("F2");
+    }
+    public void EfectuarPagoEstacion() {
+        UpdateMoney(pago);
+        UpdateMoney(-total);
     }
 }

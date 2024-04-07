@@ -14,5 +14,8 @@ public class ReinicioEstacion : MonoBehaviour
         GameObject.Find("Cofre").GetComponent<Cofre>().openChest.SetActive(false);
         GameObject.Find("BarManager").GetComponent<BarManager>().RandomHum();
         GameObject.Find("BarManager").GetComponent<BarManager>().NextSeason();
+        GameObject.Find("BarManager").GetComponent<BarManager>().CountParcels();
+        GameObject.Find("HumidityManager").GetComponent<HumidityManager>().ResetRuined();
+        GameObject.Find("CardManager").GetComponent<CardManager>().aumentoRendimiento = 0;
     }
 }

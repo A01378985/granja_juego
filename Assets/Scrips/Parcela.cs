@@ -18,6 +18,7 @@ public class Parcela : MonoBehaviour
     public int tool;
     // Crear una variable de tipo int para trabajador
     public int worker;
+    public int extraProductivity;
     public SpriteRenderer spriteRendererNormal;
     public SpriteRenderer spriteRendererActive;
     public GameObject plantas_1;
@@ -39,6 +40,8 @@ public class Parcela : MonoBehaviour
         fertilizer = 0;
         tool = 0;
         worker = 0;
+        extraProductivity = 0;
+        ruined = false;
         spriteRendererNormal.enabled = true;
         spriteRendererActive.enabled = false;
         plantas_1.SetActive(false);

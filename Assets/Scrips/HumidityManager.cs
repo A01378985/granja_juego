@@ -44,7 +44,9 @@ public class HumidityManager : MonoBehaviour
                     parcela.tool = 0;
                     parcela.worker = 0;
                     parcela.EnablePlants();
+                    GameObject.Find("CardManager").GetComponent<CardManager>().numCrops--;
                     GameObject.Find("ItemManager").GetComponent<ItemManager>().unlockedParcels--;
+                    GameObject.Find("BarManager").GetComponent<BarManager>().CountParcels();
                     GameObject.Find("BarManager").GetComponent<BarManager>().CountProd();
                 }
             }
@@ -62,20 +64,9 @@ public class HumidityManager : MonoBehaviour
                     parcela.tool = 0;
                     parcela.worker = 0;
                     parcela.EnablePlants();
+                    GameObject.Find("CardManager").GetComponent<CardManager>().numCrops--;
                     GameObject.Find("ItemManager").GetComponent<ItemManager>().unlockedParcels--;
-                    GameObject.Find("BarManager").GetComponent<BarManager>().CountProd();
-                }
-                {
-                    // Bloquear la parcela
-                    parcela.unlocked = false;
-                    parcela.ruined = true;
-                    parcela.productivity = 0;
-                    parcela.water = 0;
-                    parcela.fertilizer = 0;
-                    parcela.tool = 0;
-                    parcela.worker = 0;
-                    parcela.EnablePlants();
-                    GameObject.Find("ItemManager").GetComponent<ItemManager>().unlockedParcels--;
+                    GameObject.Find("BarManager").GetComponent<BarManager>().CountParcels();
                     GameObject.Find("BarManager").GetComponent<BarManager>().CountProd();
                 }
             }
@@ -93,7 +84,9 @@ public class HumidityManager : MonoBehaviour
                     parcela.tool = 0;
                     parcela.worker = 0;
                     parcela.EnablePlants();
+                    GameObject.Find("CardManager").GetComponent<CardManager>().numCrops--;
                     GameObject.Find("ItemManager").GetComponent<ItemManager>().unlockedParcels--;
+                    GameObject.Find("BarManager").GetComponent<BarManager>().CountParcels();
                     GameObject.Find("BarManager").GetComponent<BarManager>().CountProd();
                 }
             }
@@ -141,5 +134,20 @@ public class HumidityManager : MonoBehaviour
             // Activar letrero de ninguna parcela arruinada
             letreroNingunaArruinada.SetActive(true);
         }
+    }
+    // Método para poner ruin como false en todas las parcelas
+    public void ResetRuined()
+    {
+        // Crear un ciclo para recorrer el arreglo de parcelas
+        foreach (Parcela parcela in parcelas)
+        {
+            // Poner ruin como false
+            parcela.ruined = false;
+        }
+    }
+    // Método para pagar el dinero del seguro
+    public void PayInsurance()
+    {
+        GameObject.Find("CardManager").GetComponent<CardManager>().UpdateMoney(dineroSeguro);
     }
 }

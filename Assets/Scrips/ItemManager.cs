@@ -131,10 +131,11 @@ public class ItemManager : MonoBehaviour
         // Crear un ciclo para recorrer el arreglo de parcelas
         foreach (Parcela parcela in parcelas)
         {
-            // Verificar si la parcela está desbloqueada y tiene productividad menor a 100
-            if (parcela.unlocked && parcela.productivity < 100)
+            // Verificar si la parcela está desbloqueada y tiene productividad extra menor a 6
+            if (parcela.unlocked && parcela.extraProductivity < 5)
             {
                 // Añadir productividad
+                parcela.extraProductivity++;
                 parcela.productivity += 10;
                 parcela.EnablePlants();
                 GameObject.Find("BarManager").GetComponent<BarManager>().CountProd();
@@ -150,7 +151,7 @@ public class ItemManager : MonoBehaviour
         foreach (Parcela parcela in parcelas)
         {
             // Verificar si la parcela está desbloqueada y tiene productividad mayor a 0
-            if (parcela.unlocked && parcela.worker > 1)
+            if (parcela.unlocked && parcela.worker >= 1)
             {
                 // Restar productividad
                 parcela.worker--;
@@ -182,6 +183,7 @@ public class ItemManager : MonoBehaviour
                 parcela.EnablePlants();
                 unlockedParcels--;
                 GameObject.Find("BarManager").GetComponent<BarManager>().CountProd();
+                GameObject.Find("CardManager").GetComponent<CardManager>().numCrops--;
                 // Salir del ciclo
                 break;
             }

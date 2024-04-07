@@ -42,6 +42,7 @@ public class Cofre : MonoBehaviour
             CalculateDebt();
             extraItems = 0;
             lessItems = 0;
+            insideChest = false;
         }
     }
     // Método para detectar entrada de colisión con el personaje
@@ -68,6 +69,7 @@ public class Cofre : MonoBehaviour
             insideChest = false;
         } else if (!chestEnabled && collision.CompareTag("Player")) {
             letreroCofreBloqueado.SetActive(false);
+            insideChest = false;
         }
     }
     // Método para determinar cuántos items dar
@@ -91,7 +93,10 @@ public class Cofre : MonoBehaviour
     public void CalculateDebt()
     {
         double dineroActual = GameObject.Find("CardManager").GetComponent<CardManager>().dinero;
-        if (dineroActual > 0) {
+        if (dineroActual > 0 && dineroActual >= 250000.00) {
+            deuda = 0;
+            GameObject.Find("CardManager").GetComponent<CardManager>().UpdateMoney(-250000);
+        } else if (dineroActual > 0 && dineroActual < 250000.00) {
             deuda = 250000.00 - dineroActual;
             GameObject.Find("CardManager").GetComponent<CardManager>().UpdateMoney(-dineroActual);
         } else {
