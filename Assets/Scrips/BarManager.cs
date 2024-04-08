@@ -26,8 +26,8 @@ public class BarManager : MonoBehaviour
     public bool lluvia;
     void Start()
     {
-        sequia = false;
-        lluvia = false;
+        //sequia = false;
+        //lluvia = false;
         RandomHum();
         // Inicializar la estación en 1
         season = 1;
@@ -40,6 +40,8 @@ public class BarManager : MonoBehaviour
     // Método para habilitar el objeto correcto de la barra de humedad
     public void SetHumBar()
     {
+        sequia = false;
+        lluvia = false;
         // Deshabilitar todos los objetos de la barra de humedad
         foreach (GameObject humBar in humBars)
         {
