@@ -30,6 +30,8 @@ public class Parcela : MonoBehaviour
     public bool ruined;
     public GameObject letreroDesbloquear;
     public GameObject noSuficientes;
+    // Crear un array de GameObjects para la barra de humedad
+    public GameObject[] humBars;
     // Detectar la colisión con el jugador
     private void Start()
     {
@@ -75,6 +77,7 @@ public class Parcela : MonoBehaviour
                 } else {
                     water = 2;
                 }
+                MostrarBarras();
             } else {
                 letreroDesbloquear.SetActive(false);
                 noSuficientes.SetActive(true);
@@ -89,6 +92,8 @@ public class Parcela : MonoBehaviour
             spriteRendererActive.enabled = true;
             if (!unlocked) {
                 letreroDesbloquear.SetActive(true);
+            } else {
+                MostrarBarras();
             }
         }
     }
@@ -100,6 +105,9 @@ public class Parcela : MonoBehaviour
             spriteRendererActive.enabled = false;
             letreroDesbloquear.SetActive(false);
             noSuficientes.SetActive(false);
+            foreach (GameObject humBar in humBars) {
+                humBar.SetActive(false);
+            }
         }
     }
     // Habilitar GameObjects de acuerdo con la productividad de la parcela
@@ -129,6 +137,64 @@ public class Parcela : MonoBehaviour
             plantas_2.SetActive(false);
             plantas_3.SetActive(false);
             plantas_4.SetActive(true);
+        }
+    }
+    public void MostrarBarras() {
+        bool sequia = GameObject.Find("BarManager").GetComponent<BarManager>().sequia;
+        bool lluvia = GameObject.Find("BarManager").GetComponent<BarManager>().lluvia;
+        foreach (GameObject humBar in humBars) {
+            humBar.SetActive(false);
+        }
+        if (sequia) {
+            if (water == 0) {
+                humBars[0].SetActive(true);
+            } else if (water == 1) {
+                humBars[1].SetActive(true);
+            } else if (water == 2) {
+                humBars[2].SetActive(true);
+            } else if (water == 3) {
+                humBars[3].SetActive(true);
+            } else if (water == 4) {
+                humBars[4].SetActive(true);
+            } else if (water == 5) {
+                humBars[5].SetActive(true);
+            } else if (water == 6) {
+                humBars[6].SetActive(true);
+            } else if (water == 7) {
+                humBars[7].SetActive(true);
+            } else if (water == 8) {
+                humBars[11].SetActive(true);
+            } else if (water >= 9) {
+                humBars[12].SetActive(true);
+            }
+        } else if (lluvia) {
+            if (water == 0) {
+                humBars[7].SetActive(true);
+            } else if (water == 1) {
+                humBars[8].SetActive(true);
+            } else if (water >=2) {
+                humBars[9].SetActive(true);
+            }
+        } else if (!sequia && !lluvia) {
+            if (water == 0) {
+                humBars[1].SetActive(true);
+            } else if (water == 1) {
+                humBars[2].SetActive(true);
+            } else if (water == 2) {
+                humBars[3].SetActive(true);
+            } else if (water == 3) {
+                humBars[4].SetActive(true);
+            } else if (water == 4) {
+                humBars[5].SetActive(true);
+            } else if (water == 5) {
+                humBars[6].SetActive(true);
+            } else if (water == 6) {
+                humBars[7].SetActive(true);
+            } else if (water == 7) {
+                humBars[8].SetActive(true);
+            } else if (water >= 8) {
+                humBars[9].SetActive(true);
+            }
         }
     }
 }

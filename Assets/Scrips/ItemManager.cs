@@ -72,6 +72,7 @@ public class ItemManager : MonoBehaviour
             irrigation--;
             irrigationText.text = irrigation.ToString();
             activeParcel.water++;
+            activeParcel.MostrarBarras();
         }
     }
     // Método para restar un item de herramienta y actualizar el texto
@@ -89,6 +90,7 @@ public class ItemManager : MonoBehaviour
         }
     }
     // Método para restar un item de semilla y actualizar el texto
+    /*
     public void UseSeed()
     {
         if (seed > 0)
@@ -96,7 +98,7 @@ public class ItemManager : MonoBehaviour
             seed--;
             seedText.text = seed.ToString();
         }
-    }
+    }*/
     // Método para restar un item de trabajador y actualizar el texto
     public void UseWorker()
     {
