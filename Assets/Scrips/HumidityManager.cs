@@ -43,6 +43,7 @@ public class HumidityManager : MonoBehaviour
                     parcela.fertilizer = 0;
                     parcela.tool = 0;
                     parcela.worker = 0;
+                    parcela.extraProductivity = 0;
                     parcela.EnablePlants();
                     GameObject.Find("CardManager").GetComponent<CardManager>().numCrops--;
                     GameObject.Find("ItemManager").GetComponent<ItemManager>().unlockedParcels--;
@@ -63,6 +64,7 @@ public class HumidityManager : MonoBehaviour
                     parcela.fertilizer = 0;
                     parcela.tool = 0;
                     parcela.worker = 0;
+                    parcela.extraProductivity = 0;
                     parcela.EnablePlants();
                     GameObject.Find("CardManager").GetComponent<CardManager>().numCrops--;
                     GameObject.Find("ItemManager").GetComponent<ItemManager>().unlockedParcels--;
@@ -83,6 +85,7 @@ public class HumidityManager : MonoBehaviour
                     parcela.fertilizer = 0;
                     parcela.tool = 0;
                     parcela.worker = 0;
+                    parcela.extraProductivity = 0;
                     parcela.EnablePlants();
                     GameObject.Find("CardManager").GetComponent<CardManager>().numCrops--;
                     GameObject.Find("ItemManager").GetComponent<ItemManager>().unlockedParcels--;
@@ -149,5 +152,18 @@ public class HumidityManager : MonoBehaviour
     public void PayInsurance()
     {
         GameObject.Find("CardManager").GetComponent<CardManager>().UpdateMoney(dineroSeguro);
+    }
+    // Método para ver si hay parcelas activas y mostrar sus barras
+    public void CheckActiveAndShow()
+    {
+        // Crear un ciclo para recorrer el arreglo de parcelas
+        foreach (Parcela parcela in parcelas)
+        {
+            // Verificar si la parcela está activa
+            if (parcela.activeParcel)
+            {
+                parcela.MostrarBarras();
+            }
+        }
     }
 }

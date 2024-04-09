@@ -182,6 +182,7 @@ public class ItemManager : MonoBehaviour
                 parcela.fertilizer = 0;
                 parcela.tool = 0;
                 parcela.worker = 0;
+                parcela.extraProductivity = 0;
                 parcela.EnablePlants();
                 unlockedParcels--;
                 GameObject.Find("BarManager").GetComponent<BarManager>().CountProd();
