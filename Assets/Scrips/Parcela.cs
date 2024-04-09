@@ -189,7 +189,7 @@ public class Parcela : MonoBehaviour
             } else if (water == 5) {
                 humBars[6].SetActive(true);
             } else if (water == 6) {
-                humBars[7].SetActive(true);
+                humBars[10].SetActive(true);
             } else if (water == 7) {
                 humBars[8].SetActive(true);
             } else if (water >= 8) {
