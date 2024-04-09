@@ -169,10 +169,12 @@ public class Parcela : MonoBehaviour
             }
         } else if (lluvia) {
             if (water == 0) {
-                humBars[7].SetActive(true);
+                humBars[6].SetActive(true);
             } else if (water == 1) {
+                humBars[10].SetActive(true);
+            } else if (water ==2) {
                 humBars[8].SetActive(true);
-            } else if (water >=2) {
+            }  else if (water >=3) {
                 humBars[9].SetActive(true);
             }
         } else if (!sequia && !lluvia) {

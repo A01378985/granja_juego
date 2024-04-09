@@ -38,6 +38,7 @@ public class BarManager : MonoBehaviour
         //SetHumBar(); --------- QUITAR ESTE METODO QUITAR ESTE METODO QUITAR ESTE METODO QUITAR ESTE METODO QUITAR ESTE METODO
     }
     // Método para habilitar el objeto correcto de la barra de humedad
+    /*
     public void SetHumBar()
     {
         sequia = false;
@@ -74,6 +75,17 @@ public class BarManager : MonoBehaviour
             lluvia = true;
         } 
     }
+    */
+    public void SetHumBar()
+    {
+        sequia = false;
+        lluvia = false;
+        if (hum <= 1) {
+            sequia = true;
+        } else if (hum >= 8) {
+            lluvia = true;
+        } 
+    }
     // Método para inicializar la humedad aleatoriamente
     public void RandomHum() {
         int rand = Random.Range(0, 100);
@@ -87,7 +99,7 @@ public class BarManager : MonoBehaviour
             // 80% de posibilidad de que hum sea entre 2 y 7
             hum = Random.Range(2, 8);
         }
-        // SetHumBar(); QUITAR ESTE METODO QUITAR ESTE METODO QUITAR ESTE METODO QUITAR ESTE METODO QUITAR ESTE METODO
+        SetHumBar();
     }
     // Método para contar la productividad total de las parcelas
     public void CountProd() {

@@ -53,7 +53,7 @@ public class HumidityManager : MonoBehaviour
         } else if (lluvia) {
             foreach (Parcela parcela in parcelas)
             {
-                if (parcela.water > 2 && parcela.unlocked)
+                if (parcela.water >= 2 && parcela.unlocked)
                 {
                     // Bloquear la parcela
                     parcela.unlocked = false;
@@ -73,7 +73,7 @@ public class HumidityManager : MonoBehaviour
         } else if (!sequia && !lluvia) {
             foreach (Parcela parcela in parcelas)
             {
-                if ((parcela.water < 1 || parcela.water > 7) && parcela.unlocked)
+                if ((parcela.water < 1 || parcela.water >= 7) && parcela.unlocked)
                 {
                     // Bloquear la parcela
                     parcela.unlocked = false;
