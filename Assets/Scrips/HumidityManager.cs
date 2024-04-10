@@ -44,6 +44,7 @@ public class HumidityManager : MonoBehaviour
                     parcela.tool = 0;
                     parcela.worker = 0;
                     parcela.extraProductivity = 0;
+                    parcela.QuitarTodosTrabajadores();
                     parcela.EnablePlants();
                     GameObject.Find("CardManager").GetComponent<CardManager>().numCrops--;
                     GameObject.Find("ItemManager").GetComponent<ItemManager>().unlockedParcels--;
@@ -65,6 +66,7 @@ public class HumidityManager : MonoBehaviour
                     parcela.tool = 0;
                     parcela.worker = 0;
                     parcela.extraProductivity = 0;
+                    parcela.QuitarTodosTrabajadores();
                     parcela.EnablePlants();
                     GameObject.Find("CardManager").GetComponent<CardManager>().numCrops--;
                     GameObject.Find("ItemManager").GetComponent<ItemManager>().unlockedParcels--;
@@ -86,6 +88,7 @@ public class HumidityManager : MonoBehaviour
                     parcela.tool = 0;
                     parcela.worker = 0;
                     parcela.extraProductivity = 0;
+                    parcela.QuitarTodosTrabajadores();
                     parcela.EnablePlants();
                     GameObject.Find("CardManager").GetComponent<CardManager>().numCrops--;
                     GameObject.Find("ItemManager").GetComponent<ItemManager>().unlockedParcels--;

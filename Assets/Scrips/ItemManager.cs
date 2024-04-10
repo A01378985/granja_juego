@@ -157,6 +157,7 @@ public class ItemManager : MonoBehaviour
             if (parcela.unlocked && parcela.worker >= 1)
             {
                 // Restar productividad
+                parcela.QuitarUnTrabajador();
                 parcela.worker--;
                 parcela.productivity -= 10;
                 parcela.EnablePlants();
@@ -186,6 +187,7 @@ public class ItemManager : MonoBehaviour
                 parcela.extraProductivity = 0;
                 parcela.EnablePlants();
                 unlockedParcels--;
+                parcela.QuitarTodosTrabajadores();
                 GameObject.Find("BarManager").GetComponent<BarManager>().CountProd();
                 GameObject.Find("CardManager").GetComponent<CardManager>().numCrops--;
                 // Salir del ciclo

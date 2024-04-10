@@ -68,6 +68,7 @@ public class Parcela : MonoBehaviour
                 tool = 1;
                 worker = 2;
                 productivity = 30;
+                MostrarTodosTrabajadores();
                 EnablePlants();
                 GameObject.Find("BarManager").GetComponent<BarManager>().CountProd();
                 if (GameObject.Find("BarManager").GetComponent<BarManager>().sequia) {
@@ -205,5 +206,20 @@ public class Parcela : MonoBehaviour
         } else if (!trabajadores[1].activeSelf) {
             trabajadores[1].SetActive(true);
         }
+    }
+    public void QuitarUnTrabajador() {
+        if (trabajadores[0].activeSelf) {
+            trabajadores[0].SetActive(false);
+        } else if (trabajadores[1].activeSelf) {
+            trabajadores[1].SetActive(false);
+        }
+    }
+    public void QuitarTodosTrabajadores() {
+        trabajadores[0].SetActive(false);
+        trabajadores[1].SetActive(false);
+    }
+    public void MostrarTodosTrabajadores() {
+        trabajadores[0].SetActive(true);
+        trabajadores[1].SetActive(true);
     }
 }
