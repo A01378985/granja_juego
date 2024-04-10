@@ -32,7 +32,7 @@ public class Parcela : MonoBehaviour
     public GameObject noSuficientes;
     // Crear un array de GameObjects para la barra de humedad
     public GameObject[] humBars;
-    // Detectar la colisión con el jugador
+    public GameObject[] trabajadores;
     private void Start()
     {
         activeParcel = false;
@@ -197,6 +197,13 @@ public class Parcela : MonoBehaviour
             } else if (water >= 8) {
                 humBars[9].SetActive(true);
             }
+        }
+    }
+    public void MostrarTrabajador() {
+        if (!trabajadores[0].activeSelf) {
+            trabajadores[0].SetActive(true);
+        } else if (!trabajadores[1].activeSelf) {
+            trabajadores[1].SetActive(true);
         }
     }
 }

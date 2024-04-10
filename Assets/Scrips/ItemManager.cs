@@ -111,6 +111,7 @@ public class ItemManager : MonoBehaviour
             activeParcel.productivity += 10;
             activeParcel.EnablePlants();
             GameObject.Find("BarManager").GetComponent<BarManager>().CountProd();
+            activeParcel.MostrarTrabajador();
         }
     }
     // Método para actualizar los textos de la interfaz para todos los items
