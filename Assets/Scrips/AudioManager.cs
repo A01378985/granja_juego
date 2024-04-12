@@ -19,10 +19,12 @@ public class AudioManager : MonoBehaviour
     public void OnButtonPress() {
         if (muted == false) {
             muted = true;
-            AudioListener.pause = true;
+            //AudioListener.pause = true;
+            AudioListener.volume = 0;
         } else {
             muted = false;
-            AudioListener.pause = false;
+            //AudioListener.pause = false;
+            AudioListener.volume = 1;
         }
         UpdateButtonIcon();
     }

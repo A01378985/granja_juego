@@ -33,6 +33,7 @@ public class Parcela : MonoBehaviour
     // Crear un array de GameObjects para la barra de humedad
     public GameObject[] humBars;
     public GameObject[] trabajadores;
+    private AudioSource sonidoDesbloquear;
     private void Start()
     {
         activeParcel = false;
@@ -50,6 +51,7 @@ public class Parcela : MonoBehaviour
         plantas_2.SetActive(false);
         plantas_3.SetActive(false);
         plantas_4.SetActive(false);
+        sonidoDesbloquear = GameObject.Find("SonidoDesbloquear").GetComponent<AudioSource>();
     }
     private void Update() {
         if (activeParcel && !unlocked && Input.GetKeyDown(KeyCode.E)) {
@@ -70,6 +72,7 @@ public class Parcela : MonoBehaviour
                 productivity = 30;
                 MostrarTodosTrabajadores();
                 EnablePlants();
+                sonidoDesbloquear.Play();
                 GameObject.Find("BarManager").GetComponent<BarManager>().CountProd();
                 if (GameObject.Find("BarManager").GetComponent<BarManager>().sequia) {
                     water = 3;

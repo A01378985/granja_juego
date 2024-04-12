@@ -25,6 +25,11 @@ public class ItemManager : MonoBehaviour
     public TMPro.TextMeshProUGUI toolText;
     public TMPro.TextMeshProUGUI seedText;
     public TMPro.TextMeshProUGUI workerText;
+    private AudioSource sonidoAgua;
+    private AudioSource sonidoTrabajador;
+    private AudioSource sonidoHerramienta;
+    private AudioSource sonidoFertilizante;
+    private AudioSource sonidoPuntos;
     private void Start()
     {
         // Actualizar los textos de la interfaz
@@ -32,6 +37,11 @@ public class ItemManager : MonoBehaviour
         // Actualizar las parcelas desbloqueadas con base en la variable unlocked de cada parcela
         unlockedParcels = CountParcels();
         GameObject.Find("CardManager").GetComponent<CardManager>().numCrops = unlockedParcels;
+        sonidoAgua = GameObject.Find("SonidoAgua").GetComponent<AudioSource>();
+        sonidoTrabajador = GameObject.Find("SonidoTrabajador").GetComponent<AudioSource>();
+        sonidoHerramienta = GameObject.Find("SonidoHerramienta").GetComponent<AudioSource>();
+        sonidoPuntos = GameObject.Find("SonidoPuntos").GetComponent<AudioSource>();
+        sonidoFertilizante = GameObject.Find("SonidoFertilizante").GetComponent<AudioSource>();
     }
     // Método para encontrar la parcela activa
     public Parcela FindActiveParcel()
@@ -61,6 +71,7 @@ public class ItemManager : MonoBehaviour
             activeParcel.productivity += 10;
             activeParcel.EnablePlants();
             GameObject.Find("BarManager").GetComponent<BarManager>().CountProd();
+            sonidoFertilizante.Play();
         }
     }
     // Método para restar un item de riego y actualizar el texto
@@ -73,6 +84,7 @@ public class ItemManager : MonoBehaviour
             irrigationText.text = irrigation.ToString();
             activeParcel.water++;
             activeParcel.MostrarBarras();
+            sonidoAgua.Play();
         }
     }
     // Método para restar un item de herramienta y actualizar el texto
@@ -87,6 +99,7 @@ public class ItemManager : MonoBehaviour
             activeParcel.productivity += 10;
             activeParcel.EnablePlants();
             GameObject.Find("BarManager").GetComponent<BarManager>().CountProd();
+            sonidoHerramienta.Play();
         }
     }
     // Método para restar un item de semilla y actualizar el texto
@@ -112,6 +125,7 @@ public class ItemManager : MonoBehaviour
             activeParcel.EnablePlants();
             GameObject.Find("BarManager").GetComponent<BarManager>().CountProd();
             activeParcel.MostrarTrabajador();
+            sonidoTrabajador.Play();
         }
     }
     // Método para actualizar los textos de la interfaz para todos los items
@@ -142,6 +156,7 @@ public class ItemManager : MonoBehaviour
                 parcela.productivity += 10;
                 parcela.EnablePlants();
                 GameObject.Find("BarManager").GetComponent<BarManager>().CountProd();
+                sonidoPuntos.Play();
                 // Salir del ciclo
                 break;
             }

@@ -19,6 +19,7 @@ public class Cofre : MonoBehaviour
     public GameObject openChest;
     // Variable double para la deuda
     public double deuda;
+    private AudioSource sonidoCofre;
     // Void Start
     private void Start()
     {
@@ -30,6 +31,7 @@ public class Cofre : MonoBehaviour
         dificultad = Dificultad.dificultad;
         closedChest.SetActive(true);
         openChest.SetActive(false);
+        sonidoCofre = GameObject.Find("SonidoCofre").GetComponent<AudioSource>();
     }
     private void Update() {
         if (chestEnabled && insideChest && Input.GetKeyDown(KeyCode.E)) {
@@ -43,6 +45,7 @@ public class Cofre : MonoBehaviour
             extraItems = 0;
             lessItems = 0;
             insideChest = false;
+            sonidoCofre.Play();
         }
     }
     // Método para detectar entrada de colisión con el personaje

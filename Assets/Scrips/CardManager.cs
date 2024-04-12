@@ -39,6 +39,10 @@ public class CardManager : MonoBehaviour
     public TMPro.TextMeshProUGUI letretoTasa;
     public TMPro.TextMeshProUGUI letretoPagar;
     public double total = 0;
+    private AudioSource sonidoCarta;
+    private AudioSource sonidoSuccess;
+    private AudioSource sonidoFail;
+
     private void Start()
     {
         dificultad = Dificultad.dificultad;
@@ -74,6 +78,9 @@ public class CardManager : MonoBehaviour
         pago = 0.00;
         // Actualizar el letrero de dinero
         UpdateMoney(0.00);
+        sonidoCarta = GameObject.Find("SonidoCarta").GetComponent<AudioSource>();
+        sonidoSuccess = GameObject.Find("SonidoSuccess").GetComponent<AudioSource>();
+        sonidoFail = GameObject.Find("SonidoFail").GetComponent<AudioSource>();
     }
     // Crear una función para lanzar una carta buena
     public void ThrowGoodCard()
@@ -93,6 +100,7 @@ public class CardManager : MonoBehaviour
             Card randomCard = badCards[Random.Range(0, badCards.Count)];
             if ((randomCard == badCards[0]) || (randomCard == badCards[1])) {
                 ruin++;
+                sonidoFail.Play();
             }
             randomCard.gameObject.SetActive(true);
         } else {
@@ -124,6 +132,7 @@ public class CardManager : MonoBehaviour
             } else {
                 ThrowSpecialCard();
             }
+            sonidoCarta.Play();
         }
     }
     // Crear una función para actualizar el letrero de dinero y que reciba un valor de tipo int
@@ -166,6 +175,7 @@ public class CardManager : MonoBehaviour
         }
     }
     public void ActualizarLetrerosEstacion() {
+        sonidoSuccess.Play();
         CalcularPago();
         DeterminarTasa();
         double deuda = GameObject.Find("Cofre").GetComponent<Cofre>().deuda;

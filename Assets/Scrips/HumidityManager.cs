@@ -19,12 +19,14 @@ public class HumidityManager : MonoBehaviour
     public TMPro.TextMeshProUGUI textoDineroSeguro;
     public TMPro.TextMeshProUGUI textoArruinadas1;
     public TMPro.TextMeshProUGUI textoArruinadas2;
+    private AudioSource sonidoFail;
     // Starter
     void Start()
     {
         ruinedParcels = CountRuinedParcels();
         dificultad = Dificultad.dificultad;
         dineroSeguro = 0;
+        sonidoFail = GameObject.Find("SonidoFail").GetComponent<AudioSource>();
     }
     public void CheckIrrigation()
     {
@@ -126,6 +128,7 @@ public class HumidityManager : MonoBehaviour
             textoArruinadas2.text = ruinedParcels.ToString();
             // Activar letrero de parcelas arruinadas con seguro
             letreroArruinadasSinSeguro.SetActive(true);
+            sonidoFail.Play();
         }
         else if (ruinedParcels > 0 && dificultad == "easy")
         {
@@ -134,6 +137,7 @@ public class HumidityManager : MonoBehaviour
             textoArruinadas1.text = ruinedParcels.ToString();
             // Activar letrero de parcelas arruinadas sin seguro
             letreroArruinadasConSeguro.SetActive(true);
+            sonidoFail.Play();
         }
         else if (ruinedParcels == 0)
         {
