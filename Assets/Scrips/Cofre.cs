@@ -20,6 +20,9 @@ public class Cofre : MonoBehaviour
     // Variable double para la deuda
     public double deuda;
     private AudioSource sonidoCofre;
+    public GameObject letreroPrestamo;
+    public TMPro.TextMeshProUGUI textoEfectvo;
+    public TMPro.TextMeshProUGUI textoPrestamo;
     // Void Start
     private void Start()
     {
@@ -96,14 +99,23 @@ public class Cofre : MonoBehaviour
     public void CalculateDebt()
     {
         double dineroActual = GameObject.Find("CardManager").GetComponent<CardManager>().dinero;
+        double cantidad = 250000.00;
+        double ceros = 0.00;
         if (dineroActual > 0 && dineroActual >= 250000.00) {
             deuda = 0;
             GameObject.Find("CardManager").GetComponent<CardManager>().UpdateMoney(-250000);
+            textoPrestamo.text = deuda.ToString("F2");
+            textoEfectvo.text = cantidad.ToString("F2");
         } else if (dineroActual > 0 && dineroActual < 250000.00) {
             deuda = 250000.00 - dineroActual;
+            textoPrestamo.text = deuda.ToString("F2");
+            textoEfectvo.text = dineroActual.ToString("F2");
             GameObject.Find("CardManager").GetComponent<CardManager>().UpdateMoney(-dineroActual);
         } else {
             deuda = 250000.00;
+            textoPrestamo.text = deuda.ToString("F2");
+            textoEfectvo.text = ceros.ToString("F2");
         }
+        letreroPrestamo.SetActive(true);
     }
 }
