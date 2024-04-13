@@ -44,6 +44,7 @@ public class CardManager : MonoBehaviour
     private AudioSource sonidoFail;
     private AudioSource sonidoSmallPoints;
     private AudioSource sonidoSmallFail;
+    public int numContratos;
 
     private void Start()
     {
@@ -85,6 +86,7 @@ public class CardManager : MonoBehaviour
         sonidoFail = GameObject.Find("SonidoFail").GetComponent<AudioSource>();
         sonidoSmallPoints = GameObject.Find("SonidoSmallPoints").GetComponent<AudioSource>();
         sonidoSmallFail = GameObject.Find("SonidoSmallFail").GetComponent<AudioSource>();
+        numContratos = 0;
     }
     // Crear una función para lanzar una carta buena
     public void ThrowGoodCard()
@@ -198,5 +200,8 @@ public class CardManager : MonoBehaviour
     }
     public void PlaySmallFail() {
         sonidoSmallFail.Play();
+    }
+    public void AumentarContratos() {
+        numContratos++;
     }
 }
