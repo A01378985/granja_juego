@@ -252,7 +252,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c488a21f01e64ed45a585f489fddcd76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
+  id: 12
   respuestaUsuario: 67
   respuestaCorrecta: 97
   descripcion: {fileID: 438218156}
@@ -2652,7 +2652,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c488a21f01e64ed45a585f489fddcd76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
+  id: 3
   respuestaUsuario: 67
   respuestaCorrecta: 98
   descripcion: {fileID: 862620152}
@@ -3845,7 +3845,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c488a21f01e64ed45a585f489fddcd76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
+  id: 13
   respuestaUsuario: 67
   respuestaCorrecta: 97
   descripcion: {fileID: 0}
@@ -5159,7 +5159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c488a21f01e64ed45a585f489fddcd76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
+  id: 8
   respuestaUsuario: 67
   respuestaCorrecta: 97
   descripcion: {fileID: 0}
@@ -5366,7 +5366,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c488a21f01e64ed45a585f489fddcd76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
+  id: 5
   respuestaUsuario: 67
   respuestaCorrecta: 99
   descripcion: {fileID: 568791548}
@@ -6697,7 +6697,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c488a21f01e64ed45a585f489fddcd76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
+  id: 17
   respuestaUsuario: 67
   respuestaCorrecta: 97
   descripcion: {fileID: 536474412}
@@ -8324,7 +8324,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c488a21f01e64ed45a585f489fddcd76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
+  id: 11
   respuestaUsuario: 67
   respuestaCorrecta: 97
   descripcion: {fileID: 187204680}
@@ -8819,7 +8819,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c488a21f01e64ed45a585f489fddcd76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
+  id: 2
   respuestaUsuario: 67
   respuestaCorrecta: 98
   descripcion: {fileID: 77256686}
@@ -9063,7 +9063,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c488a21f01e64ed45a585f489fddcd76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
+  id: 15
   respuestaUsuario: 67
   respuestaCorrecta: 97
   descripcion: {fileID: 726572759}
@@ -10159,7 +10159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c488a21f01e64ed45a585f489fddcd76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
+  id: 9
   respuestaUsuario: 67
   respuestaCorrecta: 97
   descripcion: {fileID: 1064308664}
@@ -11128,7 +11128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c488a21f01e64ed45a585f489fddcd76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
+  id: 14
   respuestaUsuario: 67
   respuestaCorrecta: 97
   descripcion: {fileID: 169389251}
@@ -11972,7 +11972,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c488a21f01e64ed45a585f489fddcd76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
+  id: 21
   respuestaUsuario: 67
   respuestaCorrecta: 97
   descripcion: {fileID: 1373691506}
@@ -14509,7 +14509,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c488a21f01e64ed45a585f489fddcd76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
+  id: 4
   respuestaUsuario: 67
   respuestaCorrecta: 97
   descripcion: {fileID: 1724859379}
@@ -17560,7 +17560,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c488a21f01e64ed45a585f489fddcd76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
+  id: 7
   respuestaUsuario: 67
   respuestaCorrecta: 97
   descripcion: {fileID: 1946348974}
@@ -19910,7 +19910,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c488a21f01e64ed45a585f489fddcd76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
+  id: 6
   respuestaUsuario: 67
   respuestaCorrecta: 97
   descripcion: {fileID: 526340288}
@@ -21361,7 +21361,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c488a21f01e64ed45a585f489fddcd76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
+  id: 22
   respuestaUsuario: 67
   respuestaCorrecta: 99
   descripcion: {fileID: 276703426}
@@ -22354,7 +22354,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c488a21f01e64ed45a585f489fddcd76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
+  id: 10
   respuestaUsuario: 67
   respuestaCorrecta: 97
   descripcion: {fileID: 610219665}
@@ -23878,7 +23878,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c488a21f01e64ed45a585f489fddcd76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
+  id: 20
   respuestaUsuario: 67
   respuestaCorrecta: 97
   descripcion: {fileID: 506133417}
@@ -24085,7 +24085,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c488a21f01e64ed45a585f489fddcd76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
+  id: 18
   respuestaUsuario: 67
   respuestaCorrecta: 99
   descripcion: {fileID: 141094710}
@@ -25160,7 +25160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c488a21f01e64ed45a585f489fddcd76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
+  id: 19
   respuestaUsuario: 67
   respuestaCorrecta: 98
   descripcion: {fileID: 3916647}
@@ -25725,7 +25725,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c488a21f01e64ed45a585f489fddcd76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
+  id: 16
   respuestaUsuario: 67
   respuestaCorrecta: 97
   descripcion: {fileID: 1144827717}
@@ -26398,7 +26398,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c488a21f01e64ed45a585f489fddcd76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
+  id: 1
   respuestaUsuario: 67
   respuestaCorrecta: 97
   descripcion: {fileID: 1222096368}
