@@ -16,12 +16,16 @@ public class Pregunta : MonoBehaviour
     public GameObject BotonJugar;
     // Arreglo de GameObject llamado opciones
     public List<BtnRespuesta> opciones = new List<BtnRespuesta>();
+    private AudioSource sonidoRight;
+    private AudioSource sonidoWrong;
     private void Start()
     {
         // Llenar el arreglo opciones con los GameObjects hijos 1, 2 y 3 de este GameObject
         opciones = new List<BtnRespuesta>(GetComponentsInChildren<BtnRespuesta>());
         // Asignar a respuestaUsuario el valor de ' '
         respuestaUsuario = ' ';
+        sonidoRight = GameObject.Find("Correcto").GetComponent<AudioSource>();
+        sonidoWrong = GameObject.Find("Incorrecto").GetComponent<AudioSource>();
     }
     // Método void llamado RecibirRespuesta. Recibe un char llamado r
     public void RecibirRespuesta(char r)
@@ -38,6 +42,7 @@ public class Pregunta : MonoBehaviour
         // Si respuestaUsuario es igual a respuestaCorrecta
         if (respuestaUsuario == respuestaCorrecta)
         {
+            sonidoRight.Play();
             // Colorear con el valor hexadecimal 9CB642 el BtnRespuesta en opciones con letra==r 
             foreach (BtnRespuesta opcion in opciones)
             {
@@ -50,6 +55,7 @@ public class Pregunta : MonoBehaviour
         // Si respuestaUsuario no es igual a respuestaCorrecta
         else
         {
+            sonidoWrong.Play();
             // Colorear con el valor hexadecimal B64E43 el BtnRespuesta en opciones con letra==r
             foreach (BtnRespuesta opcion in opciones)
             {
