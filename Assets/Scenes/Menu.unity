@@ -7920,10 +7920,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Tu financiamiento ser\xE1 por medio de Verqor, tus tasas de inter\xE9s
-    ser\xE1n fijas y bajas. Tambi\xE9n tendr\xE1s un seguro contra cat\xE1strofes,
-    por lo que, si hay sequ\xEDas, inundaciones o plagas, no lo perder\xE1s todo.
-    Los insumos no subir\xE1n de precio. Adem\xE1s, habr\xE1 menos eventos negativos."
+  m_text: "Tu financiamiento ser\xE1 por medio de Verqor, una empresa de financiamiento
+    agr\xEDcola con enfoque tecnol\xF3gico.Tus tasas de inter\xE9s ser\xE1n fijas
+    y bajas. Tambi\xE9n tendr\xE1s un seguro contra cat\xE1strofes, por lo que, si
+    hay sequ\xEDas, inundaciones o plagas, no lo perder\xE1s todo. Los insumos no
+    subir\xE1n de precio. Adem\xE1s, habr\xE1 menos eventos negativos."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1002b4959789a5d4c8725c022efbc298, type: 2}
   m_sharedMaterial: {fileID: -3728828629284018424, guid: 1002b4959789a5d4c8725c022efbc298, type: 2}
@@ -8454,9 +8455,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Con el financiamiento informal, las tasas de inter\xE9s cambiar\xE1n s\xFAbitamente,
     por lo que los intereses ser\xE1n m\xE1s altos y nunca sabr\xE1s cu\xE1nto te
-    cobrar\xE1n. No tendr\xE1s seguro y harbr\xE1 muchos m\xE1s eventos negativos,
+    cobrar\xE1n. No tendr\xE1s seguro y habr\xE1 muchos m\xE1s eventos negativos,
     por lo que ser\xE1 m\xE1s f\xE1cil que pierdas tus cultivos. Los precios de los
-    insumos subir\xE1n."
+    insumos podr\xE1n subir."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1002b4959789a5d4c8725c022efbc298, type: 2}
   m_sharedMaterial: {fileID: -3728828629284018424, guid: 1002b4959789a5d4c8725c022efbc298, type: 2}

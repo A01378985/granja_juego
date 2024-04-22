@@ -5,30 +5,44 @@ using UnityEngine;
 
 public class ItemManager : MonoBehaviour
 {
-    // Crear un arreglo de objetos de tipo Parcela
-    public List<Parcela> parcelas = new List<Parcela>();
-    // Crear una variable de tipo int para item fertilizante
-    public int fertilizer = 0;
-    // Crear una variable de tipo int para item riego
-    public int irrigation = 0;
-    // Crear una variable de tipo int para item herramienta
-    public int tool = 0;
-    // Crear una variable de tipo int para item semilla
-    public int seed = 0;
-    // Crear una variable de tipo int para item trabajador
-    public int worker = 0;
-    // Variable int para el número de parcelas desbloqueadas
-    public int unlockedParcels = 0;
-    // Referencias a los objetos text mesh pro ugui
-    public TMPro.TextMeshProUGUI fertilizerText;
-    public TMPro.TextMeshProUGUI irrigationText;
-    public TMPro.TextMeshProUGUI toolText;
-    public TMPro.TextMeshProUGUI seedText;
-    public TMPro.TextMeshProUGUI workerText;
+    [SerializeField]
+    private List<Parcela> parcelas = new List<Parcela>();
+
+    public int fertilizer { get; private set; }
+    public int irrigation { get; private set; }
+    public int tool { get; private set; }
+    public int seed { get; private set; }
+    public int worker { get; private set; }
+    public int unlockedParcels { get; private set; }
+
+    [SerializeField]
+    private TMPro.TextMeshProUGUI fertilizerText;
+
+    [SerializeField]
+    private TMPro.TextMeshProUGUI irrigationText;
+
+    [SerializeField]
+    private TMPro.TextMeshProUGUI toolText;
+
+    [SerializeField]
+    private TMPro.TextMeshProUGUI seedText;
+
+    [SerializeField]
+    private TMPro.TextMeshProUGUI workerText;
+
+    [SerializeField]
     private AudioSource sonidoAgua;
+
+    [SerializeField]
     private AudioSource sonidoTrabajador;
+
+    [SerializeField]
     private AudioSource sonidoHerramienta;
+
+    [SerializeField]
     private AudioSource sonidoFertilizante;
+
+    [SerializeField]
     private AudioSource sonidoPuntos;
     private void Start()
     {
@@ -36,7 +50,7 @@ public class ItemManager : MonoBehaviour
         UpdateTexts();
         // Actualizar las parcelas desbloqueadas con base en la variable unlocked de cada parcela
         unlockedParcels = CountParcels();
-        GameObject.Find("CardManager").GetComponent<CardManager>().numCrops = unlockedParcels;
+        GameObject.Find("CardManager").GetComponent<CardManager>().NumCropsSetter(unlockedParcels);
         sonidoAgua = GameObject.Find("SonidoAgua").GetComponent<AudioSource>();
         sonidoTrabajador = GameObject.Find("SonidoTrabajador").GetComponent<AudioSource>();
         sonidoHerramienta = GameObject.Find("SonidoHerramienta").GetComponent<AudioSource>();
@@ -67,8 +81,8 @@ public class ItemManager : MonoBehaviour
         {
             fertilizer--;
             fertilizerText.text = fertilizer.ToString();
-            activeParcel.fertilizer++;
-            activeParcel.productivity += 10;
+            activeParcel.IncParcelFertilizer();
+            activeParcel.IncParcelProductivityByTen();
             activeParcel.EnablePlants();
             GameObject.Find("BarManager").GetComponent<BarManager>().CountProd();
             sonidoFertilizante.Play();
@@ -82,7 +96,7 @@ public class ItemManager : MonoBehaviour
         {
             irrigation--;
             irrigationText.text = irrigation.ToString();
-            activeParcel.water++;
+            activeParcel.IncParcelWater();
             activeParcel.MostrarBarras();
             sonidoAgua.Play();
         }
@@ -95,24 +109,13 @@ public class ItemManager : MonoBehaviour
         {
             tool--;
             toolText.text = tool.ToString();
-            activeParcel.tool++;
-            activeParcel.productivity += 10;
+            activeParcel.IncParcelTool();
+            activeParcel.IncParcelProductivityByTen();
             activeParcel.EnablePlants();
             GameObject.Find("BarManager").GetComponent<BarManager>().CountProd();
             sonidoHerramienta.Play();
         }
     }
-    // Método para restar un item de semilla y actualizar el texto
-    /*
-    public void UseSeed()
-    {
-        if (seed > 0)
-        {
-            seed--;
-            seedText.text = seed.ToString();
-        }
-    }*/
-    // Método para restar un item de trabajador y actualizar el texto
     public void UseWorker()
     {
         Parcela activeParcel = FindActiveParcel();
@@ -120,8 +123,8 @@ public class ItemManager : MonoBehaviour
         {
             worker--;
             workerText.text = worker.ToString();
-            activeParcel.worker++;
-            activeParcel.productivity += 10;
+            activeParcel.IncParcelWorker();
+            activeParcel.IncParcelProductivityByTen();
             activeParcel.EnablePlants();
             GameObject.Find("BarManager").GetComponent<BarManager>().CountProd();
             activeParcel.MostrarTrabajador();
@@ -152,8 +155,8 @@ public class ItemManager : MonoBehaviour
             if (parcela.unlocked && parcela.extraProductivity < 5)
             {
                 // Añadir productividad
-                parcela.extraProductivity++;
-                parcela.productivity += 10;
+                parcela.IncExtraProductivity();
+                parcela.IncParcelProductivityByTen();
                 parcela.EnablePlants();
                 GameObject.Find("BarManager").GetComponent<BarManager>().CountProd();
                 sonidoPuntos.Play();
@@ -173,8 +176,8 @@ public class ItemManager : MonoBehaviour
             {
                 // Restar productividad
                 parcela.QuitarUnTrabajador();
-                parcela.worker--;
-                parcela.productivity -= 10;
+                parcela.DecParcelWorker();
+                parcela.DecParcelProductivityByTen();
                 parcela.EnablePlants();
                 GameObject.Find("BarManager").GetComponent<BarManager>().CountProd();
                 // Salir del ciclo
@@ -192,19 +195,14 @@ public class ItemManager : MonoBehaviour
             if (parcela.unlocked)
             {
                 // Bloquear la parcela
-                parcela.unlocked = false;
-                parcela.ruined = true;
-                parcela.productivity = 0;
-                parcela.water = 0;
-                parcela.fertilizer = 0;
-                parcela.tool = 0;
-                parcela.worker = 0;
-                parcela.extraProductivity = 0;
+                parcela.LockThisParcel();
+                parcela.RuinThisParcel();
+                parcela.ResetParcelValues();
                 parcela.EnablePlants();
                 unlockedParcels--;
                 parcela.QuitarTodosTrabajadores();
                 GameObject.Find("BarManager").GetComponent<BarManager>().CountProd();
-                GameObject.Find("CardManager").GetComponent<CardManager>().numCrops--;
+                GameObject.Find("CardManager").GetComponent<CardManager>().DecNumCrops();
                 // Salir del ciclo
                 break;
             }
@@ -276,8 +274,16 @@ public class ItemManager : MonoBehaviour
         {
             if (parcela.unlocked)
             {
-                parcela.water = 0;
+                parcela.ResetParcelWater();
             }
         }
+    }
+    public void DecUnlockedParcels()
+    {
+        unlockedParcels--;
+    }
+    public void IncUnlockedParcels()
+    {
+        unlockedParcels++;
     }
 }

@@ -253,7 +253,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 12
-  respuestaUsuario: 67
   respuestaCorrecta: 97
   descripcion: {fileID: 438218156}
   BotonJugar: {fileID: 1208163796}
@@ -2653,7 +2652,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 3
-  respuestaUsuario: 67
   respuestaCorrecta: 98
   descripcion: {fileID: 862620152}
   BotonJugar: {fileID: 1208163796}
@@ -3846,7 +3844,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 13
-  respuestaUsuario: 67
   respuestaCorrecta: 97
   descripcion: {fileID: 0}
   BotonJugar: {fileID: 1208163796}
@@ -5292,7 +5289,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 8
-  respuestaUsuario: 67
   respuestaCorrecta: 97
   descripcion: {fileID: 0}
   BotonJugar: {fileID: 1208163796}
@@ -5499,7 +5495,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 5
-  respuestaUsuario: 67
   respuestaCorrecta: 99
   descripcion: {fileID: 568791548}
   BotonJugar: {fileID: 1208163796}
@@ -6830,7 +6825,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 17
-  respuestaUsuario: 67
   respuestaCorrecta: 97
   descripcion: {fileID: 536474412}
   BotonJugar: {fileID: 1208163796}
@@ -8457,7 +8451,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 11
-  respuestaUsuario: 67
   respuestaCorrecta: 97
   descripcion: {fileID: 187204680}
   BotonJugar: {fileID: 1208163796}
@@ -8952,7 +8945,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 2
-  respuestaUsuario: 67
   respuestaCorrecta: 98
   descripcion: {fileID: 77256686}
   BotonJugar: {fileID: 1208163796}
@@ -9196,7 +9188,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 15
-  respuestaUsuario: 67
   respuestaCorrecta: 97
   descripcion: {fileID: 726572759}
   BotonJugar: {fileID: 1208163796}
@@ -10292,7 +10283,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 9
-  respuestaUsuario: 67
   respuestaCorrecta: 97
   descripcion: {fileID: 1064308664}
   BotonJugar: {fileID: 1208163796}
@@ -11261,7 +11251,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 14
-  respuestaUsuario: 67
   respuestaCorrecta: 97
   descripcion: {fileID: 169389251}
   BotonJugar: {fileID: 1208163796}
@@ -12237,7 +12226,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 21
-  respuestaUsuario: 67
   respuestaCorrecta: 97
   descripcion: {fileID: 1373691506}
   BotonJugar: {fileID: 1208163796}
@@ -13427,7 +13415,6 @@ MonoBehaviour:
   - {fileID: 1649611267}
   - {fileID: 748426884}
   - {fileID: 1433610648}
-  preguntasRealizadas: 0
   preguntasRandom: []
   letreroFinal: {fileID: 1814211006}
 --- !u!1 &814302735
@@ -14775,7 +14762,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 4
-  respuestaUsuario: 67
   respuestaCorrecta: 97
   descripcion: {fileID: 1724859379}
   BotonJugar: {fileID: 1208163796}
@@ -17826,7 +17812,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 7
-  respuestaUsuario: 67
   respuestaCorrecta: 97
   descripcion: {fileID: 1946348974}
   BotonJugar: {fileID: 1208163796}
@@ -20176,7 +20161,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 6
-  respuestaUsuario: 67
   respuestaCorrecta: 97
   descripcion: {fileID: 526340288}
   BotonJugar: {fileID: 1208163796}
@@ -21627,7 +21611,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 22
-  respuestaUsuario: 67
   respuestaCorrecta: 99
   descripcion: {fileID: 276703426}
   BotonJugar: {fileID: 1208163796}
@@ -22620,7 +22603,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 10
-  respuestaUsuario: 67
   respuestaCorrecta: 97
   descripcion: {fileID: 610219665}
   BotonJugar: {fileID: 1208163796}
@@ -24144,7 +24126,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 20
-  respuestaUsuario: 67
   respuestaCorrecta: 97
   descripcion: {fileID: 506133417}
   BotonJugar: {fileID: 1208163796}
@@ -24351,7 +24332,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 18
-  respuestaUsuario: 67
   respuestaCorrecta: 99
   descripcion: {fileID: 141094710}
   BotonJugar: {fileID: 1208163796}
@@ -25426,7 +25406,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 19
-  respuestaUsuario: 67
   respuestaCorrecta: 98
   descripcion: {fileID: 3916647}
   BotonJugar: {fileID: 1208163796}
@@ -25991,7 +25970,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 16
-  respuestaUsuario: 67
   respuestaCorrecta: 97
   descripcion: {fileID: 1144827717}
   BotonJugar: {fileID: 1208163796}
@@ -26664,7 +26642,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 1
-  respuestaUsuario: 67
   respuestaCorrecta: 97
   descripcion: {fileID: 1222096368}
   BotonJugar: {fileID: 1208163796}

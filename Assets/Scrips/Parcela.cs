@@ -6,33 +6,48 @@ using UnityEngine;
 
 public class Parcela : MonoBehaviour
 {
-    // Crear una variable de tipo bool para parcela activa
-    public bool activeParcel;
-    // Crear una variable de tipo int para productividad
-    public int productivity;
-    // Crear una variable de tipo int para agua
-    public int water;
-    // Crear una variable de tipo int para fertilizante
-    public int fertilizer;
-    // Crear una variable de tipo int para herramienta
-    public int tool;
-    // Crear una variable de tipo int para trabajador
-    public int worker;
-    public int extraProductivity;
-    public SpriteRenderer spriteRendererNormal;
-    public SpriteRenderer spriteRendererActive;
-    public GameObject plantas_1;
-    public GameObject plantas_2;
-    public GameObject plantas_3;
-    public GameObject plantas_4;
-    // Variable para parcela desbloqueada
+    public bool activeParcel { get; private set; }
+    public int productivity { get; private set; }
+    public int water { get; private set; }
+    public int fertilizer { get; private set; }
+    public int tool { get; private set; }
+    public int worker { get; private set; }
+    public int extraProductivity { get; private set; }
+
+    [SerializeField]
+    private SpriteRenderer spriteRendererNormal;
+
+    [SerializeField]
+    private SpriteRenderer spriteRendererActive;
+
+    [SerializeField]
+    private GameObject plantas_1;
+
+    [SerializeField]
+    private GameObject plantas_2;
+
+    [SerializeField]
+    private GameObject plantas_3;
+
+    [SerializeField]
+    private GameObject plantas_4;
+
     public bool unlocked;
-    public bool ruined;
-    public GameObject letreroDesbloquear;
-    public GameObject noSuficientes;
-    // Crear un array de GameObjects para la barra de humedad
-    public GameObject[] humBars;
-    public GameObject[] trabajadores;
+    public bool ruined { get; private set; }
+
+    [SerializeField]
+    private GameObject letreroDesbloquear;
+
+    [SerializeField]
+    private GameObject noSuficientes;
+
+    [SerializeField]
+    private GameObject[] humBars;
+
+    [SerializeField]
+    private GameObject[] trabajadores;
+
+    [SerializeField]
     private AudioSource sonidoDesbloquear;
     private void Start()
     {
@@ -63,10 +78,10 @@ public class Parcela : MonoBehaviour
                 GameObject.Find("ItemManager").GetComponent<ItemManager>().RestarTres();
                 unlocked = true;
                 ruined = false;
-                GameObject.Find("BarManager").GetComponent<BarManager>().numParcelas++;
+                GameObject.Find("BarManager").GetComponent<BarManager>().IncNumParcelas();
                 letreroDesbloquear.SetActive(false);
-                GameObject.Find("CardManager").GetComponent<CardManager>().numCrops++;
-                GameObject.Find("ItemManager").GetComponent<ItemManager>().unlockedParcels++;
+                GameObject.Find("CardManager").GetComponent<CardManager>().IncNumCrops();
+                GameObject.Find("ItemManager").GetComponent<ItemManager>().IncUnlockedParcels();
                 tool = 1;
                 worker = 2;
                 productivity = 30;
@@ -224,5 +239,49 @@ public class Parcela : MonoBehaviour
     public void MostrarTodosTrabajadores() {
         trabajadores[0].SetActive(true);
         trabajadores[1].SetActive(true);
+    }
+    public void LockThisParcel () {
+        unlocked = false;
+    }
+    public void RuinThisParcel() {
+        ruined = true;
+    }
+    public void ResetParcelValues() {
+        productivity = 0;
+        water = 0;
+        fertilizer = 0;
+        tool = 0;
+        worker = 0;
+        extraProductivity = 0;
+    }
+    public void IncParcelFertilizer() {
+        fertilizer++;
+    }
+    public void IncParcelProductivityByTen() {
+        productivity += 10;
+    }
+    public void DecParcelProductivityByTen() {
+        productivity -= 10;
+    }
+    public void IncParcelWater() {
+        water++;
+    }
+    public void IncParcelTool() {
+        tool++;
+    }
+    public void IncParcelWorker() {
+        worker++;
+    }
+    public void NotRuinThisParcel() {
+        ruined = false;
+    }
+    public void IncExtraProductivity() {
+        extraProductivity++;
+    }
+    public void DecParcelWorker() {
+        worker--;
+    }
+    public void ResetParcelWater() {
+        water = 0;
     }
 }

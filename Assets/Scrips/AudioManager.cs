@@ -14,6 +14,12 @@ public class AudioManager : MonoBehaviour
     public AudioClip background;
 
     private void Start() {
+        if (!PlayerPrefs.HasKey("muted")) {
+            PlayerPrefs.SetInt("muted", 0);
+            Load();
+        } else {
+            Load();
+        }
         UpdateButtonIcon();
     }
     public void OnButtonPress() {
@@ -27,6 +33,7 @@ public class AudioManager : MonoBehaviour
             AudioListener.volume = 1;
         }
         UpdateButtonIcon();
+        Save();
     }
     private void UpdateButtonIcon() {
         if (muted == true) {
@@ -36,5 +43,12 @@ public class AudioManager : MonoBehaviour
             MusicOnIcon.gameObject.SetActive(true);
             MusicOffIcon.gameObject.SetActive(false);
         }
+    }
+    private void Load() {
+        muted = PlayerPrefs.GetInt("muted") == 1;
+        AudioListener.volume = muted ? 0 : 1;
+    }
+    private void Save() {
+        PlayerPrefs.SetInt("muted", muted ? 1 : 0);
     }
 }

@@ -4,26 +4,24 @@ using UnityEngine;
 
 public class BarManager : MonoBehaviour
 {
-    // Crear un array de GameObjects para la barra de humedad
-    public GameObject[] humBars;
     // Crear un array de GameObjects para la barra de productividad
-    public GameObject[] prodBars;
+    [SerializeField] private GameObject[] prodBars;
     // Crear un array de GameObjects para la barra de estaciones
-    public GameObject[] seasonBars;
+    [SerializeField] private GameObject[] seasonBars;
     // Crear un array de Parcelas
-    public List<Parcela> parcelas = new List<Parcela>();
+    [SerializeField] private List<Parcela> parcelas = new List<Parcela>();
     // Variable para humedad
-    public int hum;
+    public int hum { get; private set; }
     // Variable para número de parcelas
-    public int numParcelas;
+    public int numParcelas { get; private set; }
     // Variable para estación
-    public int season;
+    public int season { get; private set; }
     // Variable para productividad actual
-    public double currentProd;
+    public double currentProd { get; private set; }
     // Variable bool para sequía
-    public bool sequia;
+    public bool sequia { get; private set; }
     // Variable bool para lluvia
-    public bool lluvia;
+    public bool lluvia { get; private set; }
     void Start()
     {
         sequia = false;
@@ -35,47 +33,7 @@ public class BarManager : MonoBehaviour
         currentProd = 0;
         // Inicializar el número de parcelas en 0
         CountParcels();
-        //SetHumBar(); --------- QUITAR ESTE METODO QUITAR ESTE METODO QUITAR ESTE METODO QUITAR ESTE METODO QUITAR ESTE METODO
     }
-    // Método para habilitar el objeto correcto de la barra de humedad
-    /*
-    public void SetHumBar()
-    {
-        sequia = false;
-        lluvia = false;
-        // Deshabilitar todos los objetos de la barra de humedad
-        foreach (GameObject humBar in humBars)
-        {
-            humBar.SetActive(false);
-        }
-        // Recorrer el array de barras de humedad
-        if (hum == 0) {
-            humBars[0].SetActive(true);
-            sequia = true;
-        } else if (hum == 1) {
-            humBars[1].SetActive(true);
-            sequia = true;
-        } else if (hum == 2) {
-            humBars[2].SetActive(true);
-        } else if (hum == 3) {
-            humBars[3].SetActive(true);
-        } else if (hum == 4) {
-            humBars[4].SetActive(true);
-        } else if (hum == 5) {
-            humBars[5].SetActive(true);
-        } else if (hum == 6) {
-            humBars[6].SetActive(true);
-        } else if (hum == 7) {
-            humBars[7].SetActive(true);
-        } else if (hum == 8) {
-            humBars[8].SetActive(true);
-            lluvia = true;
-        } else if (hum == 9) {
-            humBars[9].SetActive(true);
-            lluvia = true;
-        } 
-    }
-    */
     public void SetHumBar()
     {
         sequia = false;
@@ -186,5 +144,8 @@ public class BarManager : MonoBehaviour
             seasonBars[1].SetActive(false);
             seasonBars[2].SetActive(false);
         }
+    }
+    public void IncNumParcelas() {
+        numParcelas++;
     }
 }

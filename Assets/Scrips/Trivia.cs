@@ -5,14 +5,16 @@ using UnityEngine;
 
 public class Trivia : MonoBehaviour
 {
-    // Lista de objetos de tipo pregunta
-    public List<Pregunta> preguntas = new List<Pregunta>();
-    // Variable int llamada preguntasRealizadas
-    public int preguntasRealizadas;
-    // Arreglo vacío para objetos de tipo pregunta
-    public List<Pregunta> preguntasRandom = new List<Pregunta>();
-    // Variable GameObject letreroFinal
-    public GameObject letreroFinal;
+    [SerializeField]
+    private List<Pregunta> preguntas = new List<Pregunta>();
+
+    public int preguntasRealizadas { get; private set; }
+
+    [SerializeField]
+    private List<Pregunta> preguntasRandom = new List<Pregunta>();
+
+    [SerializeField]
+    private GameObject letreroFinal;
     // Start is called before the first frame update
     void Start()
     {

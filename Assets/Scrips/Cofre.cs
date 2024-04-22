@@ -4,25 +4,39 @@ using UnityEngine;
 
 public class Cofre : MonoBehaviour
 {
-    // Variable de tipo bool enable para el cofre
-    public bool chestEnabled;
-    // Variable GameObject para el letrero de abrir
-    public GameObject letreroCofre;
-    public GameObject letreroCofreBloqueado;
-    public int extraItems;
-    public int lessItems;
-    public string dificultad;
-    public bool insideChest;
-    // Variable GameObject para el cofre cerrado
-    public GameObject closedChest;
-    // Variable GameObject para el cofre abierto
-    public GameObject openChest;
-    // Variable double para la deuda
-    public double deuda;
+    [SerializeField]
+    private bool chestEnabled;
+
+    [SerializeField]
+    private GameObject letreroCofre;
+
+    [SerializeField]
+    private GameObject letreroCofreBloqueado;
+
+    public int extraItems { get; private set; }
+    public int lessItems { get; private set; }
+    public string dificultad { get; private set; }
+    public bool insideChest { get; private set; }
+
+    [SerializeField]
+    private GameObject closedChest;
+
+    [SerializeField]
+    private GameObject openChest;
+
+    public double deuda { get; private set; }
+
+    [SerializeField]
     private AudioSource sonidoCofre;
-    public GameObject letreroPrestamo;
-    public TMPro.TextMeshProUGUI textoEfectvo;
-    public TMPro.TextMeshProUGUI textoPrestamo;
+
+    [SerializeField]
+    private GameObject letreroPrestamo;
+
+    [SerializeField]
+    private TMPro.TextMeshProUGUI textoEfectvo;
+
+    [SerializeField]
+    private TMPro.TextMeshProUGUI textoPrestamo;
     // Void Start
     private void Start()
     {
@@ -83,13 +97,13 @@ public class Cofre : MonoBehaviour
     {
         if (dificultad == "easy")
         {
-            return 15 + extraItems - lessItems;
+            return 20 + extraItems - lessItems;
         } else if (dificultad == "medium")
         {
-            return 10 + extraItems - lessItems;
+            return 15 + extraItems - lessItems;
         } else if (dificultad == "hard")
         {
-            return 5 + extraItems - lessItems;
+            return 10 + extraItems - lessItems;
         } else
         {
             return 0;
@@ -99,23 +113,36 @@ public class Cofre : MonoBehaviour
     public void CalculateDebt()
     {
         double dineroActual = GameObject.Find("CardManager").GetComponent<CardManager>().dinero;
-        double cantidad = 250000.00;
+        double cantidad = 25.00;
         double ceros = 0.00;
-        if (dineroActual > 0 && dineroActual >= 250000.00) {
+        if (dineroActual > 0 && dineroActual >= 25.00) {
             deuda = 0;
-            GameObject.Find("CardManager").GetComponent<CardManager>().UpdateMoney(-250000);
+            GameObject.Find("CardManager").GetComponent<CardManager>().UpdateMoney(-25);
             textoPrestamo.text = deuda.ToString("F2");
             textoEfectvo.text = cantidad.ToString("F2");
-        } else if (dineroActual > 0 && dineroActual < 250000.00) {
-            deuda = 250000.00 - dineroActual;
+        } else if (dineroActual > 0 && dineroActual < 25.00) {
+            deuda = 25.00 - dineroActual;
             textoPrestamo.text = deuda.ToString("F2");
             textoEfectvo.text = dineroActual.ToString("F2");
             GameObject.Find("CardManager").GetComponent<CardManager>().UpdateMoney(-dineroActual);
         } else {
-            deuda = 250000.00;
+            deuda = 25.00;
             textoPrestamo.text = deuda.ToString("F2");
             textoEfectvo.text = ceros.ToString("F2");
         }
         letreroPrestamo.SetActive(true);
+    }
+    public void IncExtraItems() {
+        extraItems++;
+    }
+    public void IncLessItems() {
+        lessItems++;
+    }
+    public void EnableChest() {
+        chestEnabled = true;
+    }
+    public void ClosedChestSprites() {
+        closedChest.SetActive(true);
+        openChest.SetActive(false);
     }
 }

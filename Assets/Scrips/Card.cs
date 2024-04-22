@@ -5,14 +5,13 @@ using UnityEngine;
 
 public class Card : MonoBehaviour
 {
-    public bool isRuin;
-    // Referencia de tipo int para valor de dinero
-    public double moneyValue;
+    [SerializeField]
+    private double moneyValue;
     // Función activa de nuevo CardManager.enabled
     public void EnableAgain()
     {
         // Activar la variable de tipo bool
-        FindObjectOfType<CardManager>().enabledThrow = true;
+        FindObjectOfType<CardManager>().EnableCardThrow();
     }
     // Función para restar o sumar dinero
     public void AddMoney()
@@ -21,12 +20,12 @@ public class Card : MonoBehaviour
         FindObjectOfType<CardManager>().UpdateMoney(moneyValue);
     }
     public void AddExtraItem() {
-        GameObject.Find("Cofre").GetComponent<Cofre>().extraItems++;
+        GameObject.Find("Cofre").GetComponent<Cofre>().IncExtraItems();
     }
     public void AddLessItem() {
-        GameObject.Find("Cofre").GetComponent<Cofre>().lessItems++;
+        GameObject.Find("Cofre").GetComponent<Cofre>().IncLessItems();
     }
     public void AddAumentoRendimiendo() {
-        GameObject.Find("CardManager").GetComponent<CardManager>().aumentoRendimiento++;
+        GameObject.Find("CardManager").GetComponent<CardManager>().IncAumentoRendimiento();
     }
 }

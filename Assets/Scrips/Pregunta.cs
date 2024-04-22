@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class Pregunta : MonoBehaviour
 {
-    // Variable int llamada id
     public int id;
-    // Variable char llamada respuestaUsuario
-    public char respuestaUsuario;
-    // Variable char llamada respuestaCorrecta
+    public char respuestaUsuario { get; private set; }
     public char respuestaCorrecta;
-    // Variable GameObject llamada descripcion
-    public GameObject descripcion;
-    // Variable GameObject llamada BotonJugar
-    public GameObject BotonJugar;
-    // Arreglo de GameObject llamado opciones
-    public List<BtnRespuesta> opciones = new List<BtnRespuesta>();
+
+    [SerializeField]
+    private GameObject descripcion;
+
+    [SerializeField]
+    private GameObject BotonJugar;
+
+    [SerializeField]
+    private List<BtnRespuesta> opciones = new List<BtnRespuesta>();
     private AudioSource sonidoRight;
     private AudioSource sonidoWrong;
     private void Start()
