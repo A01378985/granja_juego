@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "RefactorVerqor.sln"
+    "dotnet.defaultSolution": "granja_juego.sln"
 }
