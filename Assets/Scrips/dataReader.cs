@@ -22,10 +22,12 @@ public class dataReader : MonoBehaviour
     private int semilla = 0;
     private int agua = 0;
     private int fertilizante = 0;
+    private DataNotDestroy data;
     
 
     private void Start()
     {
+        data = FindObjectOfType<DataNotDestroy>();
         string fechaHoraInicio = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
         StartCoroutine(FetchData(fechaHoraInicio));
         Juego juego = new Juego
@@ -119,6 +121,8 @@ public class dataReader : MonoBehaviour
 
                         // Enviar los datos actualizados al servidor
                         StartCoroutine(UpdatePlayerData(jsonUpdatedData));
+                        
+                        ActualizarUltimoJuego(data.DevolverDif());
                         
                         break;
                     }
