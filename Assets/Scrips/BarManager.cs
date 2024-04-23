@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BarManager : MonoBehaviour
 {
+    private dataReader dataReader;
     // Crear un array de GameObjects para la barra de productividad
     [SerializeField] private GameObject[] prodBars;
     // Crear un array de GameObjects para la barra de estaciones
@@ -24,6 +25,7 @@ public class BarManager : MonoBehaviour
     public bool lluvia { get; private set; }
     void Start()
     {
+        dataReader = FindObjectOfType<dataReader>();
         sequia = false;
         lluvia = false;
         RandomHum();
@@ -121,6 +123,7 @@ public class BarManager : MonoBehaviour
             season = 1;
         }
         SetSeasonBar();
+        dataReader.ActualizarEstaciones(season.ToString());
     }
     public void SetSeasonBar() {
         if (season == 1) {

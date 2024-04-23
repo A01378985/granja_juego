@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class ItemManager : MonoBehaviour
 {
+    private dataReader dataReader;
     [SerializeField]
     private List<Parcela> parcelas = new List<Parcela>();
 
@@ -44,8 +45,11 @@ public class ItemManager : MonoBehaviour
 
     [SerializeField]
     private AudioSource sonidoPuntos;
+    private string lastChar;
+    private int number;
     private void Start()
     {
+        dataReader = FindObjectOfType<dataReader>();
         // Actualizar los textos de la interfaz
         UpdateTexts();
         // Actualizar las parcelas desbloqueadas con base en la variable unlocked de cada parcela
@@ -66,6 +70,11 @@ public class ItemManager : MonoBehaviour
             // Verificar si la parcela está activa
             if (parcela.activeParcel)
             {
+                lastChar = parcela.name.Substring(parcela.name.Length - 1);
+                number = int.Parse(lastChar); // Convierte el carácter a un número
+                number--; // Resta uno al número
+                print(number); // Imprime el número
+                dataReader.ActualizarParcela("Desbloqueada","true",number);
                 // Retornar la parcela activa
                 return parcela;
             }
@@ -86,6 +95,7 @@ public class ItemManager : MonoBehaviour
             activeParcel.EnablePlants();
             GameObject.Find("BarManager").GetComponent<BarManager>().CountProd();
             sonidoFertilizante.Play();
+            dataReader.ActualizarFertilizante(fertilizer.ToString());   
         }
     }
     // Método para restar un item de riego y actualizar el texto
@@ -99,6 +109,7 @@ public class ItemManager : MonoBehaviour
             activeParcel.IncParcelWater();
             activeParcel.MostrarBarras();
             sonidoAgua.Play();
+            dataReader.ActualizarAgua(irrigation.ToString());
         }
     }
     // Método para restar un item de herramienta y actualizar el texto
@@ -114,6 +125,7 @@ public class ItemManager : MonoBehaviour
             activeParcel.EnablePlants();
             GameObject.Find("BarManager").GetComponent<BarManager>().CountProd();
             sonidoHerramienta.Play();
+            dataReader.ActualizarHerramienta(tool.ToString());
         }
     }
     public void UseWorker()
@@ -129,6 +141,7 @@ public class ItemManager : MonoBehaviour
             GameObject.Find("BarManager").GetComponent<BarManager>().CountProd();
             activeParcel.MostrarTrabajador();
             sonidoTrabajador.Play();
+            dataReader.ActualizarTrabajador(worker.ToString());
         }
     }
     // Método para actualizar los textos de la interfaz para todos los items
@@ -231,6 +244,10 @@ public class ItemManager : MonoBehaviour
         workerText.text = worker.ToString();
         irrigation -= 3;
         irrigationText.text = irrigation.ToString();
+        dataReader.ActualizarHerramienta(tool.ToString());
+        dataReader.ActualizarSemilla(seed.ToString());
+        dataReader.ActualizarTrabajador(worker.ToString());
+        dataReader.ActualizarAgua(irrigation.ToString());
     }
     // Función para revisar si hay 3 o más ítems de cada tipo
     public bool CheckThree()
@@ -266,6 +283,12 @@ public class ItemManager : MonoBehaviour
         }
 
         UpdateTexts();
+
+        dataReader.ActualizarFertilizante(fertilizer.ToString());
+        dataReader.ActualizarHerramienta(tool.ToString());
+        dataReader.ActualizarSemilla(seed.ToString());
+        dataReader.ActualizarTrabajador(worker.ToString());
+        dataReader.ActualizarAgua(irrigation.ToString());
     }
     // Función para reestablecer el agua en todas las parcelas desbloqueadas
     public void ResetWater()

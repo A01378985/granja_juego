@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class CardManager : MonoBehaviour
 {
+    private dataReader dataReader;
     [SerializeField]
     private bool enabledThrow;
 
@@ -68,6 +69,7 @@ public class CardManager : MonoBehaviour
     public int numContratos { get; private set; }
     private void Start()
     {
+        dataReader = FindObjectOfType<dataReader>();
         dificultad = Dificultad.dificultad;
         season = "springAutumn";
         if (dificultad == "easy") {
@@ -146,6 +148,7 @@ public class CardManager : MonoBehaviour
         // Display money in the format "0.00"
         dinero = System.Math.Round(dinero, 2);
         letretoDinero.text = dinero.ToString("F2");
+        dataReader.ActualizarBalances(dinero.ToString("F2"));   
     }
     // Método para determinar cuánto dinero recibirá el jugador
     public void CalcularPago() { // ELIMINAR LOS DEBUG
@@ -203,6 +206,7 @@ public class CardManager : MonoBehaviour
     }
     public void AumentarContratos() {
         numContratos++;
+        dataReader.ActualizarContratos(numContratos.ToString());   
     }
     public void NumCropsSetter (int num) {
         numCrops = num;

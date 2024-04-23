@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class Parcela : MonoBehaviour
 {
+    private dataReader dataReader;
     public bool activeParcel { get; private set; }
     public int productivity { get; private set; }
     public int water { get; private set; }
@@ -49,8 +50,15 @@ public class Parcela : MonoBehaviour
 
     [SerializeField]
     private AudioSource sonidoDesbloquear;
+    private string objectName;
+    private int number;
     private void Start()
     {
+        dataReader = FindObjectOfType<dataReader>();
+        objectName = gameObject.name;
+        string lastChar = objectName.Substring(objectName.Length - 1);
+        number = int.Parse(lastChar); // Convierte el carácter a un número
+        number--;
         activeParcel = false;
         ruined = false;
         productivity = 0;
@@ -96,6 +104,11 @@ public class Parcela : MonoBehaviour
                 } else {
                     water = 2;
                 }
+                dataReader.ActualizarParcela("Desbloqueada","true",number);           
+                dataReader.ActualizarParcela("Herramienta",tool.ToString(),number);
+                dataReader.ActualizarParcela("Trabajador",worker.ToString(),number);   
+                dataReader.ActualizarParcela("Productividad",productivity.ToString(),number);
+                dataReader.ActualizarParcela("Agua",water.ToString(),number);
                 MostrarBarras();
             } else {
                 letreroDesbloquear.SetActive(false);
@@ -242,8 +255,9 @@ public class Parcela : MonoBehaviour
     }
     public void LockThisParcel () {
         unlocked = false;
+        dataReader.ActualizarParcela("Desbloqueada","false",number);
     }
-    public void RuinThisParcel() {
+    public void RuinThisParcel() { 
         ruined = true;
     }
     public void ResetParcelValues() {
@@ -253,24 +267,35 @@ public class Parcela : MonoBehaviour
         tool = 0;
         worker = 0;
         extraProductivity = 0;
+        dataReader.ActualizarParcela("Productividad",productivity.ToString(),number);
+        dataReader.ActualizarParcela("Agua",water.ToString(),number);
+        dataReader.ActualizarParcela("Fertilizante",fertilizer.ToString(),number);
+        dataReader.ActualizarParcela("Herramienta",tool.ToString(),number);
+        dataReader.ActualizarParcela("Trabajador",worker.ToString(),number);
     }
     public void IncParcelFertilizer() {
         fertilizer++;
+        dataReader.ActualizarParcela("Fertilizante",fertilizer.ToString(),number);
     }
     public void IncParcelProductivityByTen() {
         productivity += 10;
+        dataReader.ActualizarParcela("Productividad",productivity.ToString(),number);
     }
     public void DecParcelProductivityByTen() {
         productivity -= 10;
+        dataReader.ActualizarParcela("Productividad",productivity.ToString(),number);
     }
     public void IncParcelWater() {
         water++;
+        dataReader.ActualizarParcela("Agua",water.ToString(),number);
     }
     public void IncParcelTool() {
         tool++;
+        dataReader.ActualizarParcela("Herramienta",tool.ToString(),number);
     }
     public void IncParcelWorker() {
         worker++;
+        dataReader.ActualizarParcela("Trabajador",worker.ToString(),number);
     }
     public void NotRuinThisParcel() {
         ruined = false;
@@ -280,8 +305,10 @@ public class Parcela : MonoBehaviour
     }
     public void DecParcelWorker() {
         worker--;
+        dataReader.ActualizarParcela("Trabajador",worker.ToString(),number);
     }
     public void ResetParcelWater() {
         water = 0;
+        dataReader.ActualizarParcela("Agua",water.ToString(),number);
     }
 }
