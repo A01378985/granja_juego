@@ -53,6 +53,7 @@ public class Trivia : MonoBehaviour
         else
         {
             letreroFinal.SetActive(true);
+            GameObject.Find("EstadoManager").GetComponent<EstadoManager>().EstadoFinalizar();
         }
     }
 }

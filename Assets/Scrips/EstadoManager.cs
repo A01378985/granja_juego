@@ -5,16 +5,6 @@ using UnityEngine;
 
 public class EstadoManager : MonoBehaviour
 {
-
-
-    //private DataNotDestroy data;
-    /*
-    private void Start()
-    {
-        data = FindObjectOfType<DataNotDestroy>();
-    }
-    */
-
     private void Start() {
         EstadoIniciado();
     }
@@ -25,14 +15,15 @@ public class EstadoManager : MonoBehaviour
         Estado.estado = "Iniciado";
         Debug.Log("El estado cambió a: " + Estado.estado);
     }
-    public void EstadoFinalizadoG()
+    public void EstadoFinalizar()
     {
-        Estado.estado = "Finalizado y ganado";
-        Debug.Log("El estado cambió a: " + Estado.estado);
-    }
-    public void EstadoFinalizadoP()
-    {
-        Estado.estado = "Finalizado y perdido";
+        if (Estado.estado == "Ganado sin trivia") {
+            Estado.estado = "Finalizado y ganado";
+        } else if (Estado.estado == "Perdido sin trivia") {
+            Estado.estado = "Finalizado y perdido";
+        } else {
+            Estado.estado = "Finalizado";
+        }
         Debug.Log("El estado cambió a: " + Estado.estado);
     }
     public void GanadoSinTrivia()
