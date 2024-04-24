@@ -46,12 +46,15 @@ public class ReinicioEstacion : MonoBehaviour
         int unlockedParcels = GameObject.Find("ItemManager").GetComponent<ItemManager>().unlockedParcels;
         if (dineroActual < -150.00) {
             letreroPerderDeuda.SetActive(true);
+            GameObject.Find("EstadoManager").GetComponent<EstadoManager>().PerdidoSinTrivia();
             return true;
         } else if (totalEstaciones >= 24) {
             letreroPerderTiempo.SetActive(true);
+            GameObject.Find("EstadoManager").GetComponent<EstadoManager>().PerdidoSinTrivia();
             return true;
         } else if (numContratos >= 3 && unlockedParcels == 5) {
             letreroGanar.SetActive(true);
+            GameObject.Find("EstadoManager").GetComponent<EstadoManager>().GanadoSinTrivia();
             return true;
         }
         return false;

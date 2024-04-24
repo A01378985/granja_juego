@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class DificultadManager : MonoBehaviour
 {
-    private string tipo;
-    private dataReader dataReader;
     private DataNotDestroy data;
     private void Start()
     {
@@ -14,7 +12,6 @@ public class DificultadManager : MonoBehaviour
     public void SetEasy()
     {
         Dificultad.dificultad = "easy";
-        
         data.ActualizarDif("verqor");
     }
     public void SetMedium()

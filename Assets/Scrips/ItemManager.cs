@@ -50,6 +50,7 @@ public class ItemManager : MonoBehaviour
     private void Start()
     {
         dataReader = FindObjectOfType<dataReader>();
+        
         // Actualizar los textos de la interfaz
         UpdateTexts();
         // Actualizar las parcelas desbloqueadas con base en la variable unlocked de cada parcela
