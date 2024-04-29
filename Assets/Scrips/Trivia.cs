@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Newtonsoft.Json;
+
 
 public class Trivia : MonoBehaviour
 {
@@ -31,6 +33,7 @@ public class Trivia : MonoBehaviour
             preguntasRandom.Add(preguntas[random]);
             preguntas.RemoveAt(random);
         }
+        
         letreroFinal.SetActive(false);
     }
     // Método para habilitar la siguiente pregunta en preguntasRandom

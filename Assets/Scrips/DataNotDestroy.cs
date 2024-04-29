@@ -7,6 +7,7 @@ public class DataNotDestroy : MonoBehaviour
 {
     // Start is called before the first frame update
     private string dif;
+    private string id_juego;
 
     public void ActualizarDif(string nuevoValor)
     {   
@@ -19,6 +20,19 @@ public class DataNotDestroy : MonoBehaviour
         print("Dificultad final a: " + dif);
 
         return dif;
+
+    }
+
+    public void SetId(string nuevoValor)
+    {   
+        id_juego = nuevoValor;
+        print("Id actualizado a: " + id_juego);
+
+    }
+    public string GetId()
+    {   
+
+        return id_juego;
 
     }
 }
