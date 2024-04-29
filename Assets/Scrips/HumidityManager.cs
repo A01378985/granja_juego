@@ -129,7 +129,7 @@ public class HumidityManager : MonoBehaviour
         }
         else if (ruinedParcels > 0 && dificultad == "easy")
         {
-            dineroSeguro = 50000 * ruinedParcels;
+            dineroSeguro = 5 * ruinedParcels;
             textoDineroSeguro.text = dineroSeguro.ToString();
             textoArruinadas1.text = ruinedParcels.ToString();
             // Activar letrero de parcelas arruinadas sin seguro
