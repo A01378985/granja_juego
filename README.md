@@ -11,11 +11,11 @@ En cropopoly, buscarás la manera de completar esta aventura en la que a través
 
 ## El Equipo
 
-- Arturo Barrios Mendoza 				        |	 A01168331
-- Lucio Arturo Reyes Castillo 				  |	 A01378985
+- Arturo Barrios Mendoza 				    |	 A01168331
+- Lucio Arturo Reyes Castillo 				|	 A01378985
 - Alejandra Estefanía Rico González 		|	 A01749850
 - Fidel Alexander Bonilla Montalvo			|	 A01798199
-- Mariana Balderrábano Aguilar				  |	 A01749581
+- Mariana Balderrábano Aguilar				|	 A01749581
 
 
 ## Profesores
