@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ReinicioEstacion : MonoBehaviour
 {
+    private dataReader dataReader;
     public int totalEstaciones { get; private set; }
     [SerializeField]
     private GameObject letreroGanar;
@@ -15,11 +16,13 @@ public class ReinicioEstacion : MonoBehaviour
     private GameObject letreroNuevaEstacion;
     void Start()
     {
+        dataReader = FindObjectOfType<dataReader>();
         totalEstaciones = 1;
         letreroGanar.SetActive(false);
         letreroPerderDeuda.SetActive(false);
         letreroPerderTiempo.SetActive(false);
         letreroNuevaEstacion.SetActive(false);
+        dataReader.ActualizarEstaciones(totalEstaciones.ToString());
     }
     // Método para reiniciar todo
     public void NuevaEstacion() {
@@ -39,6 +42,7 @@ public class ReinicioEstacion : MonoBehaviour
         GameObject.Find("HumidityManager").GetComponent<HumidityManager>().CheckActiveAndShow();
         GameObject.Find("CardManager").GetComponent<CardManager>().ResetAumentoRendimiento();
         totalEstaciones++;
+        dataReader.ActualizarEstaciones(totalEstaciones.ToString());
     }
     public bool RevisarCondiciones() {
         int numContratos = GameObject.Find("CardManager").GetComponent<CardManager>().numContratos;

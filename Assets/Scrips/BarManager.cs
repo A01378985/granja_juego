@@ -123,7 +123,7 @@ public class BarManager : MonoBehaviour
             season = 1;
         }
         SetSeasonBar();
-        dataReader.ActualizarEstaciones(season.ToString());
+        //dataReader.ActualizarEstaciones(season.ToString());
     }
     public void SetSeasonBar() {
         if (season == 1) {
