@@ -8,8 +8,8 @@ using System.Text;
 
 public class dataReader : MonoBehaviour
 {
-    private string serverUrl = "http://localhost:8000/jugadores";
-    private string resultUrl = "http://localhost:8000/result";
+    private string serverUrl = "https://cropopoly-server-production.up.railway.app/jugadores";
+    private string resultUrl = "https://cropopoly-server-production.up.railway.app/result";
     private string playerDataUrl;
     private string correo;
     Juego juego = new Juego();
@@ -130,14 +130,14 @@ public class dataReader : MonoBehaviour
                         print("Concidencia");
                         jugadorPrincipal = jugador;
                         print("Concidencia");
-        print("http://localhost:8000/jugadores/" + jugadorPrincipal.id);
-        playerDataUrl = "http://localhost:8000/jugadores/" + jugadorPrincipal.id;
+        print("https://cropopoly-server-production.up.railway.app/jugadores/" + jugadorPrincipal.id);
+        playerDataUrl = "https://cropopoly-server-production.up.railway.app/jugadores/" + jugadorPrincipal.id;
 
         
 
         print(jsonJuego2);
 
-        var request = new UnityWebRequest("http://localhost:8000/jugadores/" + jugadorPrincipal.id, "POST");
+        var request = new UnityWebRequest("https://cropopoly-server-production.up.railway.app/jugadores/" + jugadorPrincipal.id, "POST");
         byte[] bodyRaw = Encoding.UTF8.GetBytes(jsonJuego2);
         request.uploadHandler = new UploadHandlerRaw(bodyRaw);
         request.downloadHandler = new DownloadHandlerBuffer();
@@ -151,13 +151,15 @@ public class dataReader : MonoBehaviour
             print("Solicitud POST exitosa");
 
             // Realizar una solicitud GET para obtener los datos actualizados del jugador
-            var getRequest = UnityWebRequest.Get("http://localhost:8000/jugadores/" + jugadorPrincipal.id);
+            var getRequest = UnityWebRequest.Get("https://cropopoly-server-production.up.railway.app/jugadores/" + jugadorPrincipal.id);
             yield return getRequest.SendWebRequest();
 
             if (getRequest.result == UnityWebRequest.Result.Success)
             {
                 // La solicitud GET fue exitosa, obtener el JSON de la respuesta
                 string jsonPlayerData = getRequest.downloadHandler.text;
+
+                print(jsonPlayerData);
 
                 // Deserializar el JSON en un objeto Jugador
                 Jugador jugadorActualizado = JsonConvert.DeserializeObject<Jugador>(jsonPlayerData);
@@ -167,11 +169,16 @@ public class dataReader : MonoBehaviour
         
 
                 
-                ultimoJuego = jugadorPrincipal.Juego[jugador.Juego.Count];
-                longitud = jugador.Juego.Count;
+                ultimoJuego = jugadorPrincipal.Juego[jugadorPrincipal.Juego.Count - 1];
+                longitud = jugadorPrincipal.Juego.Count-1;
+                print("Longitud" + longitud);
                 ultimoJuego.tipoFinanciamiento = data.DevolverDif();
-                jugadorPrincipal.Juego[jugador.Juego.Count] = ultimoJuego;
+                jugadorPrincipal.Juego[jugadorPrincipal.Juego.Count - 1] = ultimoJuego;
                 data.SetId(ultimoJuego.id);
+                string jsonUpdatedData2 = JsonConvert.SerializeObject(jugadorPrincipal.Juego[jugadorPrincipal.Juego.Count -1] );
+                
+                 print(jsonUpdatedData2);
+                
                 
                 string jsonUpdatedData = JsonConvert.SerializeObject(jugadorPrincipal);
                 
