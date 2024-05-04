@@ -1,3 +1,9 @@
+/// <summary>
+/// Da funcionalidad a las cartas cuando se les da click.
+/// Les permite agregar o restar dinero, agregar o restar items, o incrementar el rendimiento de las parcelas.
+/// </summary>
+/// <author>Arturo Barrios Mendoza</author>
+
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;

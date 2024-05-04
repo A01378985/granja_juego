@@ -1,3 +1,8 @@
+/// <summary>
+/// Clase que se encarga de cargar escenas y salir del juego.
+/// </summary>
+/// <author>Arturo Barrios Mendoza</author>
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

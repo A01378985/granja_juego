@@ -1,3 +1,8 @@
+/// <summary>
+/// Clase que controla el movimiento del jugador.
+/// </summary>
+/// <author>Fidel Alexander Bonilla Montalvo</author>
+
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour

@@ -1,3 +1,8 @@
+/// <summary>
+/// Se encarga de leer los datos del jugador desde el servidor y actualizarlos.
+/// </summary>
+/// <author>Fidel Alexander Bonilla Montalvo</author>
+
 using UnityEngine;
 using UnityEngine.Networking;
 using System;

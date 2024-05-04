@@ -1,8 +1,13 @@
+/// <summary>
+/// Permite a la cámara seguir al jugador en la escena.
+/// </summary>
+/// <author>Fidel Alexander Bonilla Montalvo</author>
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class cameraFollow : MonoBehaviour
+public class CameraFollow : MonoBehaviour
 {
 
     public GameObject target;
@@ -10,11 +15,7 @@ public class cameraFollow : MonoBehaviour
     public float cameraSpeed;
      private Vector3 minLimits, maxLimits;
      private float halfHeight, halfWidth;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+
 
     // Update is called once per frame
     void Update()

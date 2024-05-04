@@ -1,9 +1,13 @@
+/// <summary>
+/// Clase Trivia. Controla el flujo de las preguntas de la trivia.
+/// </summary>
+/// <author>Arturo Barrios Mendoza</author>
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Newtonsoft.Json;
-
 
 public class Trivia : MonoBehaviour
 {

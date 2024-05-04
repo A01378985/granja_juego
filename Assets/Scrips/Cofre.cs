@@ -1,3 +1,10 @@
+/// <summary>
+/// Se encarga del manejo del cofre de ítems. 
+/// Permite abrir el cofre y dar los ítems correspondientes al jugador.
+/// También calcula la deuda del jugador y la cantidad de dinero que se le presta.
+/// </summary>
+/// <author>Arturo Barrios Mendoza</author>
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

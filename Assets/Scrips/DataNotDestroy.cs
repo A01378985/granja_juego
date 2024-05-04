@@ -1,3 +1,8 @@
+/// <summary>
+/// Guarda la dificultad y el id del juego para que no se pierdan al cambiar de escena.
+/// </summary>
+/// <author>Fidel Alexander Bonilla Montalvo</author>
+
 using System;
 using System.Collections;
 using System.Collections.Generic;

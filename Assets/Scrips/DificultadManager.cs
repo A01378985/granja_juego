@@ -1,3 +1,8 @@
+/// <summary>
+/// Permite seleccionar la dificultad al inicio del juego
+/// </summary>
+/// <author>Arturo Barrios Mendoza</author>
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

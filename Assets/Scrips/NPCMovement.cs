@@ -1,3 +1,8 @@
+/// <summary>
+/// Clase que se encarga de mover a los NPC de forma aleatoria.
+/// </summary>
+/// <author>Fidel Alexander Bonilla Montalvo</author>
+
 using UnityEngine;
 using UnityEngine.Tilemaps;
 

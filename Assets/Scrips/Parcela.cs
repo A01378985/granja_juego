@@ -1,3 +1,11 @@
+/// <summary>
+/// Clase que controla el comportamiento de las parcelas.
+/// Permite bloquear y desbloquear las parcelas, mostrar y ocultar los trabajadores,
+/// mostrar y ocultar las barras de humedad, incrementar y decrementar la productividad,
+/// y mostrar el estado correspondiente de las plantas.
+/// </summary>
+/// <author>Arturo Barrios Mendoza y Fidel Alexander Bonilla Montalvo</author>
+
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;

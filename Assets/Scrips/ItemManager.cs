@@ -1,3 +1,11 @@
+/// <summary>
+/// Clase que administra los items del juego.
+/// Permite usar items, añadir o restar productividad a las parcelas, 
+/// bloquear parcelas y contar parcelas desbloqueadas.
+/// Al final de cada estación reestablece el agua en todas las parcelas desbloqueadas.
+/// </summary>
+/// <author>Arturo Barrios Mendoza y Fidel Alexander Bonilla Montalvo</author>
+
 using System;
 using System.Collections;
 using System.Collections.Generic;

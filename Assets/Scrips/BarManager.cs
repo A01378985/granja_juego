@@ -1,3 +1,8 @@
+/// <summary>
+/// Muestra el nivel correspondiente en las barras de humedad, producción y estaciones.
+/// </summary>
+/// <author>Arturo Barrios Mendoza y Fidel Alexander Bonilla Montalvo</author>
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

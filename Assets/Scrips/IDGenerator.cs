@@ -1,3 +1,8 @@
+/// <summary>
+/// Generador de IDs únicos de 5 caracteres alfanuméricos para cada juego.
+/// </summary>
+/// <author>Fidel Alexander Bonilla Montalvo</author>
+
 using System;
 using System.Collections.Generic;
 using UnityEngine;

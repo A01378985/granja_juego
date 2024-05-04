@@ -1,3 +1,11 @@
+/// <summary>
+/// Con base en la dificultad y la estación, calcula la probabilidad para lanzar una carta buena, mala o especial.
+/// Además, lleva el control de las cartas lanzadas y el dinero del jugador.
+/// También maneja los letreros que aparecen al final de cada estación.
+/// </summary>
+/// <author>Arturo Barrios Mendoza</author>
+
+
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;

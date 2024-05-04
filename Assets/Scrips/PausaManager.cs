@@ -1,3 +1,8 @@
+/// <summary>
+/// Clase que se encarga de pausar y reanudar el juego.
+/// </summary>
+/// <author>Arturo Barrios Mendoza</author>
+
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;

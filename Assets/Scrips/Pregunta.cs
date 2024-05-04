@@ -1,3 +1,9 @@
+/// <summary>
+/// Clase que se encarga de manejar las preguntas y respuestas de los juegos.
+/// Determina si una pregunta se contestó correctamente o no.
+/// </summary>
+/// <author>Arturo Barrios Mendoza y Fidel Alexander Bonilla Monalvo</author>
+
 using System;
 using System.Collections;
 using System.Collections.Generic;

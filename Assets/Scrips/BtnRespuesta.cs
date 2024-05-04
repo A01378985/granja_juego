@@ -1,3 +1,8 @@
+/// <summary>
+/// Permite responder una pregunta de la trivia recibir la respuesta elegida por el jugador.
+/// </summary>
+/// <author>Arturo Barrios Mendoza</author>
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

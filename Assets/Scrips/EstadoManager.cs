@@ -1,3 +1,8 @@
+/// <summary>
+/// Permite cambiar el estado del juego.
+/// </summary>
+/// <author>Arturo Barrios Mendoza</author>
+
 using System;
 using System.Collections;
 using System.Collections.Generic;

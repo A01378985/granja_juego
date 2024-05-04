@@ -1,3 +1,10 @@
+/// <summary>
+/// Revisa las preferencias de usuario para saber si el audio esta activado o desactivado
+/// y cambia el icono de acuerdo a la preferencia del usuario.
+/// Tambien se encarga de activar o desactivar el audio y colocar el ícono correspondiente.
+/// </summary>
+/// <author>Arturo Barrios Mendoza</author>
+
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;

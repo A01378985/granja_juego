@@ -1,3 +1,9 @@
+/// <summary>
+/// Clase que se encarga de pasar de una estación a otra.
+/// Muestra un letrero de nueva estación y reinicia los valores de los objetos.
+/// </summary>
+/// <author>Arturo Barrios Mendoza y Fidel Alexander Bonilla Montalvo</author>
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

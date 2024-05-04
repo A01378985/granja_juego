@@ -1,3 +1,11 @@
+/// <summary>
+/// Determina si las parcelas tuvieron un riego adecuado durante la estación.
+/// Arruina las parcelas que no se regadon adecuadamente.
+/// También permite calcular el dinero que paga el seguro (si se cuenta con él)
+/// y muestra un mensaje con el número de parcelas arruinadas.
+/// </summary>
+/// <author>Arturo Barrios Mendoza</author>
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
