@@ -11,7 +11,7 @@ using System.Collections.Generic;
 using Newtonsoft.Json;
 using System.Text;
 
-public class dataReader : MonoBehaviour
+public class DataReader : MonoBehaviour
 {
     private string serverUrl = "https://cropopoly-server-production.up.railway.app/jugadores";
     private string resultUrl = "https://cropopoly-server-production.up.railway.app/result";

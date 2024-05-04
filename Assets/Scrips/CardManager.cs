@@ -14,7 +14,7 @@ using UnityEngine;
 
 public class CardManager : MonoBehaviour
 {
-    private dataReader dataReader;
+    private DataReader dataReader;
     [SerializeField]
     private bool enabledThrow;
 
@@ -77,7 +77,7 @@ public class CardManager : MonoBehaviour
     public int numContratos { get; private set; }
     private void Start()
     {
-        dataReader = FindObjectOfType<dataReader>();
+        dataReader = FindObjectOfType<DataReader>();
         dificultad = Dificultad.dificultad;
         season = "springAutumn";
         if (dificultad == "easy") {

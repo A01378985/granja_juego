@@ -14,7 +14,7 @@ using UnityEngine;
 
 public class Parcela : MonoBehaviour
 {
-    private dataReader dataReader;
+    private DataReader dataReader;
     public bool activeParcel { get; private set; }
     public int productivity { get; private set; }
     public int water { get; private set; }
@@ -62,7 +62,7 @@ public class Parcela : MonoBehaviour
     private int number;
     private void Start()
     {
-        dataReader = FindObjectOfType<dataReader>();
+        dataReader = FindObjectOfType<DataReader>();
         objectName = gameObject.name;
         string lastChar = objectName.Substring(objectName.Length - 1);
         number = int.Parse(lastChar); // Convierte el carácter a un número

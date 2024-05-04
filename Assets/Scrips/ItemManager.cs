@@ -13,7 +13,7 @@ using UnityEngine;
 
 public class ItemManager : MonoBehaviour
 {
-    private dataReader dataReader;
+    private DataReader dataReader;
     [SerializeField]
     private List<Parcela> parcelas = new List<Parcela>();
 
@@ -57,7 +57,7 @@ public class ItemManager : MonoBehaviour
     private int number;
     private void Start()
     {
-        dataReader = FindObjectOfType<dataReader>();
+        dataReader = FindObjectOfType<DataReader>();
         
         // Actualizar los textos de la interfaz
         UpdateTexts();

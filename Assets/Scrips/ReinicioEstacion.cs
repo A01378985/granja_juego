@@ -10,7 +10,7 @@ using UnityEngine;
 
 public class ReinicioEstacion : MonoBehaviour
 {
-    private dataReader dataReader;
+    private DataReader dataReader;
     public int totalEstaciones { get; private set; }
     [SerializeField]
     private GameObject letreroGanar;
@@ -22,7 +22,7 @@ public class ReinicioEstacion : MonoBehaviour
     private GameObject letreroNuevaEstacion;
     void Start()
     {
-        dataReader = FindObjectOfType<dataReader>();
+        dataReader = FindObjectOfType<DataReader>();
         totalEstaciones = 1;
         letreroGanar.SetActive(false);
         letreroPerderDeuda.SetActive(false);

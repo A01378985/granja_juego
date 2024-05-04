@@ -9,7 +9,7 @@ using UnityEngine;
 
 public class BarManager : MonoBehaviour
 {
-    private dataReader dataReader;
+    private DataReader dataReader;
     // Crear un array de GameObjects para la barra de productividad
     [SerializeField] private GameObject[] prodBars;
     // Crear un array de GameObjects para la barra de estaciones
@@ -30,7 +30,7 @@ public class BarManager : MonoBehaviour
     public bool lluvia { get; private set; }
     void Start()
     {
-        dataReader = FindObjectOfType<dataReader>();
+        dataReader = FindObjectOfType<DataReader>();
         sequia = false;
         lluvia = false;
         RandomHum();
